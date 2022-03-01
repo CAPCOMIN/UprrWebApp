@@ -99,47 +99,47 @@
 	</head>
 	<body>
 
-		<nav class="navbar navbar-inverse">
-			<div class="container-fluid" id="div1">
-				<div class="navbar-header">
-					<a class="navbar-brand" href="/" id="div3">Recommendation System</a>
-				</div>
-				<!-- <ul class="nav navbar-nav" id="div1">
-					<li class="active"><a href="/">Home</a></li>
-				</ul> -->
-				<div id="">
-					<a class="navbar-brand"> </a>
-				</div>
-				<div class="navbar-header" id="div1">
-					<a class="navbar-brand" href="/">Home</a>
-				</div>
-				
-				<div class="navbar-header" id="div1">
-					<a class="navbar-brand" href="/search">Search</a>
-				</div>
-				
-				<div class="navbar-header" id="div1">
-					<a class="navbar-brand" href="/searchportrait">User Portrait</a>
-				</div>
-				
-				<div class="nav navbar-nav navbar-right" id="div1">
-					<!-- <a href="http://localhost:3000/" class="btn btn-info" style="margin-top: 5px;" target="_blank">Chat for Assistance</a> -->
-					<a href="https://youdi1012.github.io/" class="btn btn-info" style="margin-top: 5px;"
-						target="_blank">LLD Blog</a>
-				
-					<a href="https://zxy.link/" class="btn btn-info" style="margin-top: 5px;" target="_blank">ZXY
-						Blog</a>
-
-                    <a href="https://konn-submarine-bu.github.io/" class="btn btn-info" style="margin-top: 5px;"
-                       target="_blank">LY
-                        Blog</a>
-                </div>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid" id="div1">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/" id="div3">Recommendation System</a>
             </div>
-        </nav>
+            <!-- <ul class="nav navbar-nav" id="div1">
+                <li class="active"><a href="/">Home</a></li>
+            </ul> -->
+            <div id="">
+                <a class="navbar-brand"> </a>
+            </div>
+            <div class="navbar-header" id="div1">
+                <a class="navbar-brand" href="/">Home</a>
+            </div>
 
-        <div id="run">
+            <div class="navbar-header" id="div1">
+                <a class="navbar-brand" href="/search">Search</a>
+            </div>
 
-            <h2 id="div1">Search Results Page</h2>
+            <div class="navbar-header" id="div1">
+                <a class="navbar-brand" href="/searchportrait">User Portrait</a>
+            </div>
+
+            <div class="nav navbar-nav navbar-right" id="div1">
+                <!-- <a href="http://localhost:3000/" class="btn btn-info" style="margin-top: 5px;" target="_blank">Chat for Assistance</a> -->
+                <a href="https://youdi1012.github.io/" class="btn btn-info" style="margin-top: 5px;"
+                   target="_blank">LLD Blog</a>
+
+                <a href="https://zxy.link/" class="btn btn-info" style="margin-top: 5px;" target="_blank">ZXY
+                    Blog</a>
+
+                <a href="https://konn-submarine-bu.github.io/" class="btn btn-info" style="margin-top: 5px;"
+                   target="_blank">LY
+                    Blog</a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="run">
+
+        <h2 id="div1">Search Results Page</h2>
             <h3 id="div1">Related search results for {{ ID }} are shown below: </h3>
             <ol id="div2">
                 {% for rec in rec_list %}
