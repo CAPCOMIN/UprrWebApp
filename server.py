@@ -2,6 +2,7 @@
 import sys
 import pandas as pd
 from configs import *
+import userWordCould
 from Input_Preprocessing import utils
 
 sys.path.append(PROJECT_PATH)
@@ -91,10 +92,12 @@ def searchResult():
     else:
         return "Sorry, there was an error in searchResult."
 
+
 # SearchPortraitPage
 @app.route("/searchportrait")
 def searchportrait():
     return render_template("/searchportrait.html", max=users.shape[0] - 1)
+
 
 # UserPortraitPage
 @app.route("/userportrait", methods=["GET", "POST"])
@@ -109,19 +112,31 @@ def userportrait():
 
         # Loading courseID and userID data and converting userID from type object to numeric
         # 加载 courseID 和 userID 数据并将 userID 从类型对象转换为数字
-        data = pd.read_csv(DATA_PATH, usecols=['courseID', 'userID'])
+        data = pd.read_csv(DATA_PATH, usecols=['courseID', 'userID', 'courseFeature'])
         # cols = data.columns.drop('userID')
         data['userID'] = data['userID'].apply(pd.to_numeric, errors='coerce')
-        data = data.fillna(0)
-
+        # data = data.fillna(0)
+        data.dropna(axis=0, how='any', inplace=True)
         userportrait = data[data['userID'] == user]
         # userportrait = userportrait.columns.drop('userID')
         print(userportrait)
-        return render_template("userportrait.html", userID=user, rec_list=userportrait['courseID'].to_list())
+        featureList = userportrait['courseFeature'].to_list()
+
+        # 写入课程 features 以生成画像
+        f = open("features.txt", "a")
+        for i in featureList:
+            c = i.split(',')
+            for ci in c:
+                print(ci)
+                f.write(ci + "\n")
+        f.close()
+        wc = userWordCould.WC()
+        wc.draw_wordcloud()
+        return render_template("userportrait.html", userID=user, rec_list=featureList)
 
     else:
+        return "Sorry, there was an error in user portrait web app."
 
-        return "Sorry, there was an error."
 
 if __name__ == "__main__":
     app.run(debug=True)
