@@ -76,7 +76,7 @@ def searchResult():
         searchResult = data[data['userID'] == user]
         # searchResult = searchResult.columns.drop('userID')
         print(searchResult)
-        return render_template("result.html", userID=user, rec_list=searchResult['courseID'].to_list())
+        return render_template("searchResult.html", userID=user, rec_list=searchResult['courseID'].to_list())
 
     else:
 
@@ -84,7 +84,7 @@ def searchResult():
 
 # SearchPortraitPage
 @app.route("/searchportrait")
-def searchPortrait():
+def searchportrait():
     return render_template("/searchportrait.html", max=users.shape[0] - 1)
 
 # UserPortraitPage
