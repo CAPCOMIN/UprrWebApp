@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Results page</title>
+		<link rel="stylesheet" type="text/css" href="static/style.css">
+		<title>Recommendation System</title>
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<link rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js">
+		</script>
+
+		<style>
+			.return {
+				background-color: rgb(190, 221, 149);
+				border: 2px solid black;
+				color: rgb(44, 57, 172);
+				padding: 5px 10px;
+				text-align: center;
+				display: inline-block;
+				font-size: 20px;
+				margin: 10px 30px;
+				cursor: pointer;
+			}
+
+			body {
+
+				background-image: url(../static/img/4.png);
+				background-repeat: no-repeat;
+				background-attachment: fixed;
+				text-align: center;
+			}
+
+			#div1 {
+				font-family: "Times New Roman";
+			}
+
+			#div2 {
+				font-family: "Times New Roman";
+				font-size: 18px;
+			}
+			
+			#div3 {
+				font-family: "Times New Roman";
+				color: #ffffff;
+			}
+
+			.transbox {
+				background-color: #ffffff;
+				border: 1px solid black;
+				opacity: 0.7;
+				filter: alpha(opacity=60);
+				/* IE8 及更早版本 */
+				font-weight: bold;
+			}
+			.transbox:hover{
+				 opacity:0.9;
+			}
+		</style>
+
+	</head>
+	<body>
+
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid" id="div1">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="/" id="div3">Recommendation System</a>
+				</div>
+				<!-- <ul class="nav navbar-nav" id="div1">
+					<li class="active"><a href="/">Home</a></li>
+				</ul> -->
+				<div id="">
+					<a class="navbar-brand"> </a>
+				</div>
+				<div class="navbar-header" id="div1">
+					<a class="navbar-brand" href="/">Home</a>
+				</div>
+				
+				<div class="navbar-header" id="div1">
+					<a class="navbar-brand" href="/search">Search</a>
+				</div>
+				
+				<div class="nav navbar-nav navbar-right" id="div1">
+					<!-- <a href="http://localhost:3000/" class="btn btn-info" style="margin-top: 5px;" target="_blank">Chat for Assistance</a> -->
+					<a href="https://youdi1012.github.io/" class="btn btn-info" style="margin-top: 5px;"
+						target="_blank">LLD Blog</a>
+				
+					<a href="https://zxy.link/" class="btn btn-info" style="margin-top: 5px;" target="_blank">ZXY
+						Blog</a>
+				</div>
+			</div>
+		</nav>
+		
+		<div >
+		<p id="div2">
+			This project takes the log files of user as initial input and extracts their study patterns based on their
+			online activity.
+			The recommendation generator takes those features as input, tries to find similar users based comparing the
+			study patterns and recommends courses they completed.
+		</p>
+		</div>
+
+        <div>
+            <p id="div2">
+
+		    </p>
+        </div>
+
+        <form method="post" action="/searchResult" class="transbox">
+			<fieldset>
+				<legend id="div4">Text input</legend>
+				<p id="div4">
+					<label>Insert an index between 0 to {{max}} to choose a USER ID</label>
+					<input type="number" name="index" value="Integer here" min="0" max="7320653" required>
+				</p>
+				<p>
+					<input type="submit" name="submit" class="btn btn-primary" value="Submit" />
+				</p>
+			</fieldset>
+		</form>
+		
+	</body>
