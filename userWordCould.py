@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-__author__ = 'heroli'
 
 # wordcloud生成中文词云
 from wordcloud import WordCloud
@@ -17,8 +16,8 @@ class WC(object):
     # 绘制词云
     def draw_wordcloud(self):
         # 读入一个txt文件
-        # comment_text = open('features.txt', 'r', encoding='utf-8').read()
-        comment_text = open('./static/test.txt', 'r', encoding='utf-8').read()
+        comment_text = open('features.txt', 'r', encoding='utf-8').read()
+        # comment_text = open('./static/test.txt', 'r', encoding='utf-8').read()
         # 结巴分词，生成字符串，如果不通过分词，无法直接生成正确的中文词云
         cut_text = " ".join(jieba.cut(comment_text))
         # print(cut_text)
@@ -40,7 +39,7 @@ class WC(object):
             width=500,
             height=500,
             # 设置背景色
-            background_color='black',
+            background_color='white',
             # 词云形状
             mask=color_mask,
             # 允许最大词汇

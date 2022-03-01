@@ -1,13 +1,4 @@
 artificial-intelligence
-artificial-intelligence
-machine-learning
-mathematics
-algorithm
-algorithm
-programming
-data_structure
-mathematics
-artificial-intelligence
 machine-learning
 mathematics
 algorithm

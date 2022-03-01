@@ -124,6 +124,7 @@ def userportrait():
 
         # 写入课程 features 以生成画像
         f = open("features.txt", "a")
+        f.truncate(0)
         for i in featureList:
             c = i.split(',')
             for ci in c:
