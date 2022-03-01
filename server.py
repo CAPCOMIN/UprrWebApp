@@ -62,25 +62,34 @@ def searchResult():
 
         # Collecting the form responses
         userdata = request.form
+        print(userdata)
 
-        # Extracting the values for UserIndex and No. of recommendations
-        user = int(userdata.get("index"))
+        if list(userdata)[0] == 'manufacturer':
+            course = userdata.get("manufacturer")
+            data = pd.read_csv(DATA_PATH, usecols=['courseID', 'userID'])
+            studentSearchResult = data[data['courseID'] == course]
+            print(studentSearchResult)
+            return render_template("searchResult.html", ID=course, rec_list=studentSearchResult['userID'].to_list())
 
-        # Loading courseID and userID data and converting userID from type object to numeric
-        # 加载 courseID 和 userID 数据并将 userID 从类型对象转换为数字
-        data = pd.read_csv(DATA_PATH, usecols=['courseID', 'userID'])
-        # cols = data.columns.drop('userID')
-        data['userID'] = data['userID'].apply(pd.to_numeric, errors='coerce')
-        data = data.fillna(0)
+        else:
 
-        searchResult = data[data['userID'] == user]
-        # searchResult = searchResult.columns.drop('userID')
-        print(searchResult)
-        return render_template("searchResult.html", userID=user, rec_list=searchResult['courseID'].to_list())
+            # Extracting the values for UserIndex and No. of recommendations
+            user = int(userdata.get("index"))
+
+            # Loading courseID and userID data and converting userID from type object to numeric
+            # 加载 courseID 和 userID 数据并将 userID 从类型对象转换为数字
+            data = pd.read_csv(DATA_PATH, usecols=['courseID', 'userID'])
+            # cols = data.columns.drop('userID')
+            data['userID'] = data['userID'].apply(pd.to_numeric, errors='coerce')
+            data = data.fillna(0)
+
+            courseSearchResult = data[data['userID'] == user]
+            # searchResult = searchResult.columns.drop('userID')
+            print(courseSearchResult)
+            return render_template("searchResult.html", ID=user, rec_list=courseSearchResult['courseID'].to_list())
 
     else:
-
-        return "Sorry, there was an error."
+        return "Sorry, there was an error in searchResult."
 
 # SearchPortraitPage
 @app.route("/searchportrait")
