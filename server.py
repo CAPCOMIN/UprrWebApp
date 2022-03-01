@@ -82,6 +82,37 @@ def searchResult():
 
         return "Sorry, there was an error."
 
+# SearchPortraitPage
+@app.route("/searchportrait")
+def searchPortrait():
+    return render_template("/searchportrait.html", max=users.shape[0] - 1)
+
+# UserPortraitPage
+@app.route("/userportrait", methods=["GET", "POST"])
+def userportrait():
+    if request.method == "POST":
+
+        # Collecting the form responses
+        userdata = request.form
+
+        # Extracting the values for UserIndex and No. of recommendations
+        user = int(userdata.get("index"))
+
+        # Loading courseID and userID data and converting userID from type object to numeric
+        # 加载 courseID 和 userID 数据并将 userID 从类型对象转换为数字
+        data = pd.read_csv(DATA_PATH, usecols=['courseID', 'userID'])
+        # cols = data.columns.drop('userID')
+        data['userID'] = data['userID'].apply(pd.to_numeric, errors='coerce')
+        data = data.fillna(0)
+
+        userportrait = data[data['userID'] == user]
+        # userportrait = userportrait.columns.drop('userID')
+        print(userportrait)
+        return render_template("userportrait.html", userID=user, rec_list=userportrait['courseID'].to_list())
+
+    else:
+
+        return "Sorry, there was an error."
 
 if __name__ == "__main__":
     app.run(debug=True)
