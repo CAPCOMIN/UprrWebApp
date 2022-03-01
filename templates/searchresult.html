@@ -12,7 +12,40 @@
 			href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js">
 		</script>
-
+		<script>
+			window.onload = function() {
+				var run = document.getElementById("run");
+				var btn = document.getElementById("btn");
+				var speed = 1;
+				var timer = null;
+				var alpha = 60;
+				run.onmouseover = function() {
+					startrun(90);
+				}
+				run.onmouseout = function() {
+					startrun(60);
+				}
+				function startrun(target) {
+					clearInterval(timer);
+					timer = setInterval(function() {
+						if (target > alpha) {
+							speed = 3;
+						} else {
+							speed = -3;
+						}
+						if (alpha == target) {
+							clearInterval(timer);
+						} else {
+							alpha = alpha + speed;
+							run.style.filter = 'alpha(opacity=' + alpha + ')';
+							run.style.opacity = alpha / 100;
+							document.title = alpha;
+						}
+					}, 60)
+				}
+			}
+		</script>
+		
 		<style>
 			.return {
 				background-color: rgb(190, 221, 149);
@@ -49,19 +82,17 @@
 				color: #ffffff;
 			}
 
-			.transbox {
-				background-color: #ffffff;
-				border: 1px solid black;
-				opacity: 0.7;
-				filter: alpha(opacity=60);
-				/* IE8 及更早版本 */
-				font-weight: bold;
+			#run {
 				width: 1000px;
 				margin: 0 auto;
+				background-color: #ffffff;
+				
+				border: 1px solid black;
+				font-weight: bold;
 				border-radius: calc(1.25rem);
-			}
-			.transbox:hover{
-				 opacity:0.9;
+			
+				opacity: 0.6;
+				filter: alpha(opacity=60);
 			}
 		</style>
 
@@ -98,12 +129,14 @@
 				
 					<a href="https://zxy.link/" class="btn btn-info" style="margin-top: 5px;" target="_blank">ZXY
 						Blog</a>
+				
+					<a href="https://konn-submarine-bu.github.io/" class="btn btn-info" style="margin-top: 5px;" target="_blank">LY
+						Blog</a>
 				</div>
 			</div>
 		</nav>
 
-		<div class="transbox">
-
+		<div id="run">
 
 			<h2 id="div1">Search Results Page</h2>
             <h3 id="div1">The courses taken by User {{userID}} are as follows: </h3>

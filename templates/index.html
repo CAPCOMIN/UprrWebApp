@@ -12,7 +12,40 @@
 			href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js">
 		</script>
-
+		<script>
+			window.onload = function() {
+				var run = document.getElementById("run");
+				var btn = document.getElementById("btn");
+				var speed = 1;
+				var timer = null;
+				var alpha = 60;
+				run.onmouseover = function() {
+					startrun(90);
+				}
+				run.onmouseout = function() {
+					startrun(60);
+				}
+				function startrun(target) {
+					clearInterval(timer);
+					timer = setInterval(function() {
+						if (target > alpha) {
+							speed = 3;
+						} else {
+							speed = -3;
+						}
+						if (alpha == target) {
+							clearInterval(timer);
+						} else {
+							alpha = alpha + speed;
+							run.style.filter = 'alpha(opacity=' + alpha + ')';
+							run.style.opacity = alpha / 100;
+							document.title = alpha;
+						}
+					}, 60)
+				}
+			}
+		</script>
+		
 		<style type="text/css">
 			#div1 {
 				font-family: "Times New Roman";
@@ -38,7 +71,6 @@
 				color: #ffffff;
 			}
 
-
 			body {
 
 				background-image: url(../static/img/4.png);
@@ -48,22 +80,20 @@
 				background-size: cover;
 			}
 
-
-			.transbox {
+			#run {
 				width: 700px;
 				height: 240px;
 				margin: 0 auto;
 				background-color: #ffffff;
+				/* background: #06c; */
+				
 				border: 1px solid black;
-				opacity: 0.7;
-				filter: alpha(opacity=60);
-				/* IE8 及更早版本 */
+				/* border: 1px solid #000; */
 				font-weight: bold;
 				border-radius: calc(1.25rem);
-			}
 
-			.transbox:hover {
-				opacity: 0.9;
+				opacity: 0.6;
+				filter: alpha(opacity=60);
 			}
 		</style>
 	</head>
@@ -89,7 +119,7 @@
 				<div class="navbar-header" id="div1">
 					<a class="navbar-brand" href="/search">Search</a>
 				</div>
-				
+
 				<div class="navbar-header" id="div1">
 					<a class="navbar-brand" href="/searchportrait">User Portrait</a>
 				</div>
@@ -101,6 +131,10 @@
 
 					<a href="https://zxy.link/" class="btn btn-info" style="margin-top: 5px;" target="_blank">ZXY
 						Blog</a>
+
+					<a href="https://konn-submarine-bu.github.io/" class="btn btn-info" style="margin-top: 5px;"
+						target="_blank">LY
+						Blog</a>
 				</div>
 
 
@@ -110,11 +144,11 @@
 		<h1 id="div1">
 			Study Material Recommendation Systems based on Study Patterns and Cognitive learning
 		</h1>
-		
+
 		<h2 id="div1">
 			About the project:
 		</h2>
-		
+
 		<p id="div2">
 			This project takes the log files of user as initial input and extracts their study patterns based on their
 			online activity.
@@ -122,7 +156,7 @@
 			study patterns and recommends courses they completed.
 		</p>
 
-		<form method="post" action="/result" class="transbox">
+		<form method="post" action="/result" id="run">
 			<fieldset>
 				<legend id="div4">Text input</legend>
 				<p id="div3">
