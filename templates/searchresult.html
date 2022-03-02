@@ -1,156 +1,168 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Results page</title>
-		<link rel="stylesheet" type="text/css" href="static/style.css">
+<head>
+    <title>Results page</title>
+    <link rel="stylesheet" type="text/css" href="static/style.css">
 
-		<title>Recommendation System</title>
-		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-		<link rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js">
-		</script>
-		<script>
-			window.onload = function() {
-				var run = document.getElementById("run");
-				var btn = document.getElementById("btn");
-				var speed = 1;
-				var timer = null;
-				var alpha = 60;
-				run.onmouseover = function() {
-					startrun(90);
-				}
-				run.onmouseout = function() {
-					startrun(60);
-				}
-				function startrun(target) {
-					clearInterval(timer);
-					timer = setInterval(function() {
-						if (target > alpha) {
-							speed = 3;
-						} else {
-							speed = -3;
-						}
-						if (alpha == target) {
-							clearInterval(timer);
-						} else {
-							alpha = alpha + speed;
-							run.style.filter = 'alpha(opacity=' + alpha + ')';
-							run.style.opacity = alpha / 100;
-							document.title = alpha;
-						}
-					}, 60)
-				}
-			}
-		</script>
-		
-		<style>
-			.return {
-				background-color: rgb(190, 221, 149);
-				border: 2px solid black;
-				color: rgb(44, 57, 172);
-				padding: 5px 10px;
-				text-align: center;
-				display: inline-block;
-				font-size: 20px;
-				margin: 10px 30px;
-				cursor: pointer;
-			}
+    <title>Recommendation System</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js">
+    </script>
+    <script>
+        window.onload = function () {
+            var run = document.getElementById("run");
+            var btn = document.getElementById("btn");
+            var speed = 1;
+            var timer = null;
+            var alpha = 60;
+            run.onmouseover = function () {
+                startrun(90);
+            }
+            run.onmouseout = function () {
+                startrun(60);
+            }
 
-			body {
+            function startrun(target) {
+                clearInterval(timer);
+                timer = setInterval(function () {
+                    if (target > alpha) {
+                        speed = 3;
+                    } else {
+                        speed = -3;
+                    }
+                    if (alpha == target) {
+                        clearInterval(timer);
+                    } else {
+                        alpha = alpha + speed;
+                        run.style.filter = 'alpha(opacity=' + alpha + ')';
+                        run.style.opacity = alpha / 100;
+                        document.title = alpha;
+                    }
+                }, 60)
+            }
+        }
+    </script>
 
-				background-image: url(../static/img/4.png);
-				background-repeat: no-repeat;
-				background-attachment: fixed;
-				text-align: center;
-				background-size: cover;
-			}
+    <style>
+        .return {
+            background-color: rgb(190, 221, 149);
+            border: 2px solid black;
+            color: rgb(44, 57, 172);
+            padding: 5px 10px;
+            text-align: center;
+            display: inline-block;
+            font-size: 20px;
+            margin: 10px 30px;
+            cursor: pointer;
+        }
 
-			#div1 {
-				font-family: "Times New Roman";
-			}
+        body {
 
-			#div2 {
-				font-family: "Times New Roman";
-				font-size: 18px;
-			}
-			
-			#div3 {
-				font-family: "Times New Roman";
-				color: beige;
-			}
+            background-image: url(../static/img/4.png);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            text-align: center;
+            background-size: cover;
+        }
 
-			#run {
-				width: 1000px;
-				margin: 0 auto;
-				background-color: #ffffff;
-				
-				border: 1px solid black;
-				font-weight: bold;
-				border-radius: calc(1.25rem);
-			
-				opacity: 0.6;
-				filter: alpha(opacity=60);
-			}
-		</style>
+        #div1 {
+            font-family: "Times New Roman";
+        }
 
-	</head>
-	<body>
+        #div2 {
+            font-family: "Times New Roman";
+            font-size: 18px;
+        }
 
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid" id="div1">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="/" id="div3">Recommendation System</a>
-            </div>
-            <!-- <ul class="nav navbar-nav" id="div1">
-                <li class="active"><a href="/">Home</a></li>
-            </ul> -->
-            <div id="">
-                <a class="navbar-brand"> </a>
-            </div>
-            <div class="navbar-header" id="div1">
-                <a class="navbar-brand" href="/">Home</a>
-            </div>
+        #div3 {
+            font-family: "Times New Roman";
+            color: beige;
+        }
 
-            <div class="navbar-header" id="div1">
-                <a class="navbar-brand" href="/search">Search</a>
-            </div>
+        #div5 {
+            font-family: "Titillium Web Bold";
+            font-weight: bold;
+            color: beige;
+        }
 
-            <div class="navbar-header" id="div1">
-                <a class="navbar-brand" href="/searchportrait">User Portrait</a>
-            </div>
+        #divbar {
+            font-family: "Titillium Web";
+            color: beige;
+        }
 
-            <div class="nav navbar-nav navbar-right" id="div1">
-                <!-- <a href="http://localhost:3000/" class="btn btn-info" style="margin-top: 5px;" target="_blank">Chat for Assistance</a> -->
-                <a href="https://youdi1012.github.io/" class="btn btn-info" style="margin-top: 5px;"
-                   target="_blank">LLD Blog</a>
+        #run {
+            width: 1000px;
+            margin: 0 auto;
+            background-color: #ffffff;
 
-                <a href="https://zxy.link/" class="btn btn-info" style="margin-top: 5px;" target="_blank">ZXY
-                    Blog</a>
+            border: 1px solid black;
+            font-weight: bold;
+            border-radius: calc(1.25rem);
 
-                <a href="https://konn-submarine-bu.github.io/" class="btn btn-info" style="margin-top: 5px;"
-                   target="_blank">LY
-                    Blog</a>
-            </div>
+            opacity: 0.6;
+            filter: alpha(opacity=60);
+        }
+    </style>
+
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid" id="div1">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/" id="div5">UPRR Web App</a>
         </div>
-    </nav>
+        <!-- <ul class="nav navbar-nav" id="div1">
+            <li class="active"><a href="/">Home</a></li>
+        </ul> -->
+        <div id="">
+            <a class="navbar-brand"> </a>
+        </div>
+        <div class="navbar-header" id="divbar">
+            <a class="navbar-brand" href="/">Home</a>
+        </div>
 
-    <div id="run">
+        <div class="navbar-header" id="divbar">
+            <a class="navbar-brand" href="/search">Search</a>
+        </div>
 
-        <h2 id="div1">Search Results Page</h2>
-            <h3 id="div1">Related search results for {{ ID }} are shown below: </h3>
-            <ol id="div2">
-                {% for rec in rec_list %}
-                    <li>{{ rec }}</li>
-                {% endfor %}
-            </ol>
+        <div class="navbar-header" id="divbar">
+            <a class="navbar-brand" href="/searchportrait">User Portrait</a>
+        </div>
 
-            <a href='/search' id="div1">
-                <button class="return">
-                    Try another query
-                </button>
-			</a>
-		</div>
-	</body>
+        <div class="nav navbar-nav navbar-right" id="div1">
+            <!-- <a href="http://localhost:3000/" class="btn btn-info" style="margin-top: 5px;" target="_blank">Chat for Assistance</a> -->
+            <a href="https://youdi1012.github.io/" class="btn btn-info" style="margin-top: 5px;"
+               target="_blank">LLD Blog</a>
+
+            <a href="https://zxy.link/" class="btn btn-info" style="margin-top: 5px;" target="_blank">ZXY
+                Blog</a>
+
+            <a href="https://konn-submarine-bu.github.io/" class="btn btn-info" style="margin-top: 5px;"
+               target="_blank">LY
+                Blog</a>
+        </div>
+    </div>
+</nav>
+
+<div id="run">
+
+    <h2 id="div1">Search Results Page</h2>
+    <h3 id="div1">Related search results for {{ ID }} are shown below: </h3>
+    <ol id="div2">
+        {% for rec in rec_list %}
+            <li>{{ rec }}</li>
+        {% endfor %}
+    </ol>
+
+    <a href='/search' id="div1">
+        <button class="return">
+            Try another query
+        </button>
+    </a>
+</div>
+</body>
