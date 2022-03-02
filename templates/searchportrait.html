@@ -17,12 +17,12 @@
             var btn = document.getElementById("btn");
             var speed = 1;
             var timer = null;
-            var alpha = 60;
+            var alpha = 75;
             run.onmouseover = function () {
                 startrun(90);
             }
             run.onmouseout = function () {
-                startrun(60);
+                startrun(75);
             }
 
             function startrun(target) {
@@ -41,7 +41,7 @@
                         run.style.opacity = alpha / 100;
                         document.title = alpha;
                     }
-                }, 60)
+                }, 75)
             }
         }
     </script>
@@ -88,7 +88,11 @@
             font-weight: bold;
             color: beige;
         }
-
+		
+		#div6 {
+		    opacity: 0.8;
+		}
+		
         #divbar {
             font-family: "Titillium Web";
             color: beige;
@@ -106,8 +110,8 @@
             font-weight: bold;
             border-radius: calc(1.25rem);
 
-            opacity: 0.6;
-            filter: alpha(opacity=60);
+            opacity: 0.75;
+            filter: alpha(opacity=75);
         }
     </style>
 
@@ -117,7 +121,7 @@
 <script type="text/javascript" src="{{ url_for('static', filename='jquery.js') }}"></script>
 <link rel="stylesheet" type="text/css" href="../nprogress-master/nprogress.css" rel="external nofollow"/>
 <script type="text/javascript" src="../static/nprogress.js"></script>
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse" id="div6">
     <div class="container-fluid" id="div1">
         <div class="navbar-header">
             <a class="navbar-brand" href="/" id="div5">UPRR Web App</a>
