@@ -1,368 +1,374 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Search page</title>
-		<link rel="stylesheet" type="text/css" href="static/style.css">
-		<title>Recommendation System</title>
-		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-		<link rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js">
-		</script>
-		<script>
-			window.onload = function() {
-				var run = document.getElementById("run");
-				var btn = document.getElementById("btn");
-				var speed = 1;
-				var timer = null;
-				var alpha = 60;
-				run.onmouseover = function() {
-					startrun(90);
-				}
-				run.onmouseout = function() {
-					startrun(60);
-				}
+<head>
+    <title>Search page</title>
+    <link rel="stylesheet" type="text/css" href="static/style.css">
+    <title>Recommendation System</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js">
+    </script>
+    <script>
+        window.onload = function () {
+            var run = document.getElementById("run");
+            var btn = document.getElementById("btn");
+            var speed = 1;
+            var timer = null;
+            var alpha = 60;
+            run.onmouseover = function () {
+                startrun(90);
+            }
+            run.onmouseout = function () {
+                startrun(60);
+            }
 
-				function startrun(target) {
-					clearInterval(timer);
-					timer = setInterval(function() {
-						if (target > alpha) {
-							speed = 3;
-						} else {
-							speed = -3;
-						}
-						if (alpha == target) {
-							clearInterval(timer);
-						} else {
-							alpha = alpha + speed;
-							run.style.filter = 'alpha(opacity=' + alpha + ')';
-							run.style.opacity = alpha / 100;
-							document.title = alpha;
-						}
-					}, 60)
-				}
-			}
-		</script>
+            function startrun(target) {
+                clearInterval(timer);
+                timer = setInterval(function () {
+                    if (target > alpha) {
+                        speed = 3;
+                    } else {
+                        speed = -3;
+                    }
+                    if (alpha == target) {
+                        clearInterval(timer);
+                    } else {
+                        alpha = alpha + speed;
+                        run.style.filter = 'alpha(opacity=' + alpha + ')';
+                        run.style.opacity = alpha / 100;
+                        document.title = alpha;
+                    }
+                }, 60)
+            }
+        }
+    </script>
 
-		<style>
-			.return {
-				background-color: rgb(190, 221, 149);
-				border: 2px solid black;
-				color: rgb(44, 57, 172);
-				padding: 5px 10px;
-				text-align: center;
-				display: inline-block;
-				font-size: 20px;
-				margin: 10px 30px;
-				cursor: pointer;
-			}
+    <style>
+        .return {
+            background-color: rgb(190, 221, 149);
+            border: 2px solid black;
+            color: rgb(44, 57, 172);
+            padding: 5px 10px;
+            text-align: center;
+            display: inline-block;
+            font-size: 20px;
+            margin: 10px 30px;
+            cursor: pointer;
+        }
 
-			body {
+        body {
 
-				background-image: url(../static/img/4.png);
-				background-repeat: no-repeat;
-				background-attachment: fixed;
-				text-align: center;
-				background-size: cover;
-			}
+            background-image: url(../static/img/4.png);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            text-align: center;
+            background-size: cover;
+        }
 
-			#div1 {
-				font-family: "Times New Roman";
-			}
+        #div1 {
+            font-family: "Times New Roman";
+        }
 
-			#div2 {
-				font-family: "Times New Roman";
-				font-size: 18px;
-			}
+        #div2 {
+            font-family: "Times New Roman";
+            color: beige;
+            font-size: 18px;
+        }
 
-			#div3 {
-				font-family: "Times New Roman";
-				color: #ffffff;
-			}
+        #div3 {
+            font-family: "Times New Roman";
+            color: #ffffff;
+        }
 
-			#run {
-				width: 1000px;
-				height: 180px;
-				margin: 0 auto;
-				background-color: #ffffff;
-				/* background: #06c; */
+        #run {
+            width: 1000px;
+            height: 180px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            /* background: #06c; */
 
-				border: 1px solid black;
-				/* border: 1px solid #000; */
-				font-weight: bold;
-				border-radius: calc(1.25rem);
+            border: 1px solid black;
+            /* border: 1px solid #000; */
+            font-weight: bold;
+            border-radius: calc(1.25rem);
 
-				opacity: 0.6;
-				filter: alpha(opacity=60);
-			}
+            opacity: 0.6;
+            filter: alpha(opacity=60);
+        }
 
-			.transbox {
-				width: 1000px;
-				height: 180px;
-				margin: 0 auto;
-				background-color: #ffffff;
-				border: 1px solid black;
-				opacity: 0.6;
-				filter: alpha(opacity=60);
-				/* IE8 及更早版本 */
-				font-weight: bold;
-				border-radius: calc(1.25rem);
-			}
+        .transbox {
+            width: 1000px;
+            height: 180px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid black;
+            opacity: 0.6;
+            filter: alpha(opacity=60);
+            /* IE8 及更早版本 */
+            font-weight: bold;
+            border-radius: calc(1.25rem);
+        }
 
-			.transbox:hover {
-				opacity: 0.9;
+        .transbox:hover {
+            opacity: 0.9;
 
-			}
+        }
 
-			#runs {
-				width: 1000px;
-				height: 180px;
-				margin: 0 auto;
-				background-color: #ffffff;
-				/* background: #06c; */
+        #runs {
+            width: 1000px;
+            height: 180px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            /* background: #06c; */
 
-				border: 1px solid black;
-				/* border: 1px solid #000; */
-				font-weight: bold;
-				border-radius: calc(1.25rem);
+            border: 1px solid black;
+            /* border: 1px solid #000; */
+            font-weight: bold;
+            border-radius: calc(1.25rem);
 
-				opacity: 0.6;
-				filter: alpha(opacity=60);
-			}
-		</style>
+            opacity: 0.6;
+            filter: alpha(opacity=60);
+        }
+    </style>
 
-	</head>
-	<body>
+</head>
+<body>
 
-		<nav class="navbar navbar-inverse">
-			<div class="container-fluid" id="div1">
-				<div class="navbar-header">
-					<a class="navbar-brand" href="/" id="div3">Recommendation System</a>
-				</div>
-				<!-- <ul class="nav navbar-nav" id="div1">
-            <li class="active"><a href="/">Home</a></li>
-        </ul> -->
-				<div id="">
-					<a class="navbar-brand"> </a>
-				</div>
-				<div class="navbar-header" id="div1">
-					<a class="navbar-brand" href="/">Home</a>
-				</div>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid" id="div1">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/" id="div3">Recommendation System</a>
+        </div>
+        <!-- <ul class="nav navbar-nav" id="div1">
+    <li class="active"><a href="/">Home</a></li>
+</ul> -->
+        <div id="">
+            <a class="navbar-brand"> </a>
+        </div>
+        <div class="navbar-header" id="div1">
+            <a class="navbar-brand" href="/">Home</a>
+        </div>
 
-				<div class="navbar-header" id="div1">
-					<a class="navbar-brand" href="/search">Search</a>
-				</div>
+        <div class="navbar-header" id="div1">
+            <a class="navbar-brand" href="/search">Search</a>
+        </div>
 
-				<div class="navbar-header" id="div1">
-					<a class="navbar-brand" href="/searchportrait">User Portrait</a>
-				</div>
+        <div class="navbar-header" id="div1">
+            <a class="navbar-brand" href="/searchportrait">User Portrait</a>
+        </div>
 
-				<div class="nav navbar-nav navbar-right" id="div1">
-					<!-- <a href="http://localhost:3000/" class="btn btn-info" style="margin-top: 5px;" target="_blank">Chat for Assistance</a> -->
-					<a href="https://youdi1012.github.io/" class="btn btn-info" style="margin-top: 5px;"
-						target="_blank">LLD Blog</a>
+        <div class="nav navbar-nav navbar-right" id="div1">
+            <!-- <a href="http://localhost:3000/" class="btn btn-info" style="margin-top: 5px;" target="_blank">Chat for Assistance</a> -->
+            <a href="https://youdi1012.github.io/" class="btn btn-info" style="margin-top: 5px;"
+               target="_blank">LLD Blog</a>
 
-					<a href="https://zxy.link/" class="btn btn-info" style="margin-top: 5px;" target="_blank">ZXY
-						Blog</a>
+            <a href="https://zxy.link/" class="btn btn-info" style="margin-top: 5px;" target="_blank">ZXY
+                Blog</a>
 
-					<a href="https://konn-submarine-bu.github.io/" class="btn btn-info" style="margin-top: 5px;"
-						target="_blank">LY
-						Blog</a>
-				</div>
-			</div>
-		</nav>
+            <a href="https://konn-submarine-bu.github.io/" class="btn btn-info" style="margin-top: 5px;"
+               target="_blank">LY
+                Blog</a>
+        </div>
+    </div>
+</nav>
 
-		<div>
-			<p id="div2">
-				This project takes the log files of user as initial input and extracts their study patterns based on
-				their
-				online activity.
-				The recommendation generator takes those features as input, tries to find similar users based comparing
-				the
-				study patterns and recommends courses they completed.
-			</p>
-		</div>
+<div>
+    <p id="div2">
+        This project takes the log files of user as initial input and extracts their study patterns based on
+        their
+        online activity.
+        The recommendation generator takes those features as input, tries to find similar users based comparing
+        the
+        study patterns and recommends courses they completed.
+    </p>
+</div>
 
-		<div>
-			<p id="div2">
 
-			</p>
-		</div>
+<form method="post" action="/searchResult" id="run">
+    <fieldset>
+        <legend id="div4">Search courses for each student</legend>
+        <p>
 
-		<form method="post" action="/searchResult" id="run">
-			<fieldset>
-				<legend id="div4">Search courses for each student</legend>
-				<p id="div4">
-					<label>Insert an index between 0 to {{ max }} to choose a USER ID</label>
-					<input type="number" name="index" value="Integer here" min="0" max="7320653" required>
-				</p>
-				<p>
-					<input type="submit" name="submit" class="btn btn-primary" value="Submit" />
-				</p>
-			</fieldset>
-		</form>
+        </p>
+        <p id="div4">
+            <label>Insert an index between 0 to {{ max }} to choose a USER ID</label>
+            <input type="number" name="index" value="Integer here" min="0" max="7320653" required>
+        </p>
+        <br>
+        <p>
+            <input type="submit" name="submit" class="btn btn-primary" value="Submit"/>
+        </p>
+    </fieldset>
+</form>
 
-		<form method="post" action="/searchResult" class="transbox">
-			<fieldset>
-				<legend id="div4">Search students for each course</legend>
-				<p id="div4">
-					<label>Please select a course (144 in total):</label>
-					<!--<input type="number" name="index" value="Integer here" min="0" max="7320653" required>-->
-					<select class="form-control" name="manufacturer" id="manufacturer">
-						<option selected="selected">choose a course</option>
-						<option>AdelaideX/humbio101x/_</option>
-						<option>RiceX/BIOC372_2x/_</option>
-						<option>TsinghuaX/00720091X/_</option>
-						<option>TsinghuaX/01030132X_2015X/2015_T2</option>
-						<option>TsinghuaX/10421084X/_B_1_</option>
-						<option>TsinghuaX/10421084_2015WV/2015_winter_vacation</option>
-						<option>TsinghuaX/10421084_2015X/2015_T1</option>
-						<option>TsinghuaX/10430484X/_1_</option>
-						<option>TsinghuaX/10430494_2015X/2015_T1</option>
-						<option>TsinghuaX/10610224X/2015_T2</option>
-						<option>TsinghuaX/10800032X/_</option>
-						<option>TsinghuaX/20250103X/2015_T2</option>
-						<option>TsinghuaX/20330334X/_</option>
-						<option>TsinghuaX/20740042X/2015_T2</option>
-						<option>TsinghuaX/30640014X/2014_T2</option>
-						<option>TsinghuaX/60240013_2015X/2015_T1</option>
-						<option>TsinghuaX/70120073X/_</option>
-						<option>TsinghuaX/80511503X/2015_T2</option>
-						<option>TsinghuaX/THUSEM005/_</option>
-						<option>TsinghuaX/THUSEM007/_</option>
-						<option>UC_BerkeleyX/CS169_1x_1/2014_T1</option>
-						<option>UC_BerkeleyX/ColWri2_1x_2015_T1/2015_T1</option>
-						<option>UC_BerkeleyX/ColWri2_3x/2014_T2</option>
-						<option>course-v1:ACCA+FA1-MA1_X+2016_T2</option>
-						<option>course-v1:ACCA+FA2_X+sp</option>
-						<option>course-v1:CAU+08110140_1x+sp</option>
-						<option>course-v1:CHD+24123150+_</option>
-						<option>course-v1:CYCU+cycusheji+2017_T1</option>
-						<option>course-v1:CYCU+cycusheji+2017_T2</option>
-						<option>course-v1:ChongqingUX+CHEM10000X+sp</option>
-						<option>course-v1:ChongqingUX+MGMT31701X+sp</option>
-						<option>course-v1:ECNUx+BIOL0031112013+2015_T2</option>
-						<option>course-v1:HIT+13SC20301820+sp</option>
-						<option>course-v1:HIT+GH47100100+2016_T1</option>
-						<option>course-v1:HIT+GH47100100+2016_T2</option>
-						<option>course-v1:HIT+GH47100100+2017_T1</option>
-						<option>course-v1:HIT+GH47100100+2017_T2</option>
-						<option>course-v1:HIT+GO90801500+2016-T2</option>
-						<option>course-v1:HIT+GO90801500+2016_TS</option>
-						<option>course-v1:HUBU+20170227X+2017_T2</option>
-						<option>course-v1:JLUx+0000045603+sp</option>
-						<option>course-v1:JLUx+gx01640603_103138_1_tv+2015_T1</option>
-						<option>course-v1:MIT+15_390_2x+_</option>
-						<option>course-v1:MITx+6_00_1x+2015_T1</option>
-						<option>course-v1:MITx+6_00_1x+2015_T2</option>
-						<option>course-v1:NBCCx+NBCC000502+_sp</option>
-						<option>course-v1:NCTU+wym+2016_T2</option>
-						<option>course-v1:NPUX+2016001+sp</option>
-						<option>course-v1:NTHU+MOOC_00_006+sp</option>
-						<option>course-v1:NTHU+MOOC_04_001+2015_T2</option>
-						<option>course-v1:NUDT+000601502+_</option>
-						<option>course-v1:NUDT+000601502+sp</option>
-						<option>course-v1:RUCX+AP000010X+2017_T1</option>
-						<option>course-v1:RiceX+AdvBIO_2x+2015_T2</option>
-						<option>course-v1:RiceX+AdvBIO_2x+sp</option>
-						<option>course-v1:RiceX+AdvENVSCI_1x+sp</option>
-						<option>course-v1:RiceX+BIOC372_1x+2016_T2</option>
-						<option>course-v1:RiceX+BIOC372_1x+2017_T1</option>
-						<option>course-v1:RiceX+BIOC372_1x+2017_T2</option>
-						<option>course-v1:RiceX+BIOC372_2x+2016_T2</option>
-						<option>course-v1:RiceX+RELI157x+2016T2</option>
-						<option>course-v1:RiceX+RELI157x+2017_T1</option>
-						<option>course-v1:RiceX+RELI157x+2017_T2</option>
-						<option>course-v1:SDUx+sd010201402+sp</option>
-						<option>course-v1:SEU+00034237_p1+sp</option>
-						<option>course-v1:Stanford+SciWrite+2016_T2</option>
-						<option>course-v1:Stanfordx+SciWrite+2017_T1</option>
-						<option>course-v1:Stanfordx+SciWrite+2017_T2</option>
-						<option>course-v1:TJU+TJU2016001+sp</option>
-						<option>course-v1:TNUA+AO35003+_</option>
-						<option>course-v1:Tsinghua+20150001+2015_T2</option>
-						<option>course-v1:TsinghuaX+00040132X+sp</option>
-						<option>course-v1:TsinghuaX+00612643X_p3+sp</option>
-						<option>course-v1:TsinghuaX+00690302_2+2016_T2</option>
-						<option>course-v1:TsinghuaX+00690342X_p1+sp</option>
-						<option>course-v1:TsinghuaX+00701032X_tv+2015_T1</option>
-						<option>course-v1:TsinghuaX+00720091X_2015_2+2015_T2</option>
-						<option>course-v1:TsinghuaX+00740043X+2016_T1</option>
-						<option>course-v1:TsinghuaX+00740043X+2016_TS</option>
-						<option>course-v1:TsinghuaX+00740043_2x+2017_T1</option>
-						<option>course-v1:TsinghuaX+00740113_1X+sp</option>
-						<option>course-v1:TsinghuaX+00740123X+2016_TS</option>
-						<option>course-v1:TsinghuaX+00740123X+2017_T1</option>
-						<option>course-v1:TsinghuaX+00740123X+2017_T2</option>
-						<option>course-v1:TsinghuaX+01510192X+2016_T2</option>
-						<option>course-v1:TsinghuaX+10421084X_2015_2+sp</option>
-						<option>course-v1:TsinghuaX+10430484X+2016_T1</option>
-						<option>course-v1:TsinghuaX+10610183X_2015_T2+2015_T2</option>
-						<option>course-v1:TsinghuaX+10610183_2X+2017_T2</option>
-						<option>course-v1:TsinghuaX+10610193X+2017_T1</option>
-						<option>course-v1:TsinghuaX+10610193X+2017_T2</option>
-						<option>course-v1:TsinghuaX+10610204_tv+2015_T1</option>
-						<option>course-v1:TsinghuaX+10610224X_p1+sp</option>
-						<option>course-v1:TsinghuaX+10691113X+2017_T1</option>
-						<option>course-v1:TsinghuaX+10691113X+2017_T2</option>
-						<option>course-v1:TsinghuaX+20140064X+2016_T1</option>
-						<option>course-v1:TsinghuaX+20220214X+2017_T1</option>
-						<option>course-v1:TsinghuaX+20220214X+2017_T2</option>
-						<option>course-v1:TsinghuaX+20440333_2015X+sp</option>
-						<option>course-v1:TsinghuaX+20740042X+2016_T1</option>
-						<option>course-v1:TsinghuaX+20740042X+sp</option>
-						<option>course-v1:TsinghuaX+20740084X+2016_T1</option>
-						<option>course-v1:TsinghuaX+30040323X+2016_T1</option>
-						<option>course-v1:TsinghuaX+30130274X+2016_T1</option>
-						<option>course-v1:TsinghuaX+30140393X+2016_T1</option>
-						<option>course-v1:TsinghuaX+30150303X+2015_T2</option>
-						<option>course-v1:TsinghuaX+34000888X_p1+sp</option>
-						<option>course-v1:TsinghuaX+40040152X+sp</option>
-						<option>course-v1:TsinghuaX+40130653X+sp</option>
-						<option>course-v1:TsinghuaX+40670453X+sp</option>
-						<option>course-v1:TsinghuaX+60240202X+2016_T1</option>
-						<option>course-v1:TsinghuaX+61030031X+2016_T2</option>
-						<option>course-v1:TsinghuaX+70150023X_2015_T2+2015_T2</option>
-						<option>course-v1:TsinghuaX+70230063X+sp</option>
-						<option>course-v1:TsinghuaX+70250023X_2015_2+2015_T2</option>
-						<option>course-v1:TsinghuaX+80000822X+2016_TS</option>
-						<option>course-v1:TsinghuaX+80511503X+sp</option>
-						<option>course-v1:TsinghuaX+80512073X+2016_TS</option>
-						<option>course-v1:TsinghuaX+80512073X+2017_T2</option>
-						<option>course-v1:TsinghuaX+80515522X+2016_T1</option>
-						<option>course-v1:TsinghuaX+80515522X+2016_T2</option>
-						<option>course-v1:TsinghuaX+80515522X+2017_T1</option>
-						<option>course-v1:TsinghuaX+80515522X+2017_T2</option>
-						<option>course-v1:TsinghuaX+80590952X+2016_T2</option>
-						<option>course-v1:TsinghuaX+90640012X_p1+sp</option>
-						<option>course-v1:TsinghuaX+AP000002X+2016T2</option>
-						<option>course-v1:TsinghuaX+AP000008X+sp</option>
-						<option>course-v1:TsinghuaX+AP000009X+sp</option>
-						<option>course-v1:TsinghuaX+THU201605X+2016_T1</option>
-						<option>course-v1:TsinghuaX+THU201605X+2016_T2</option>
-						<option>course-v1:TsinghuaX+THU201605X+2017_T1</option>
-						<option>course-v1:TsinghuaX+THU201605X+2017_T2</option>
-						<option>course-v1:TsinghuaX+THU201607+sp</option>
-						<option>course-v1:TsinghuaX+TSINGHUA107+sp</option>
-						<option>course-v1:TsinghuaX+TsinghuaMandarin01+2016_T1</option>
-						<option>course-v1:TsinghuaX+TsinghuaMandarin01+sp</option>
-						<option>course-v1:Tsinghuax+10421065X_2015_T2+2015_T2</option>
-						<option>course-v1:UC_BerkeleyX+ColWri2_2x+sp</option>
-						<option>course-v1:XJTU+ME-XMGL2013-014X+2017_T2</option>
-						<option>course-v1:ZUELX+B0601353+2017_T1</option>
-						<option>course-v1:ZUELX+B0601353+2017_T2</option>
-						<option>course-v1:rcoe+MOOC102+2016_T1</option>
-						<option>course-v1:ustcX+LB05203_a+2016_T2</option>
-						<option>course-v1:xuetangx+credittest1+2017_T1</option>
 
-					</select>
-				</p>
-				<p>
-					<input type="submit" name="submit" class="btn btn-primary" value="Submit" />
-				</p>
-			</fieldset>
-		</form>
+<br>
+<br>
+<br>
 
-	</body>
+
+<form method="post" action="/searchResult" class="transbox">
+    <fieldset>
+        <legend id="div4">Search students for each course</legend>
+        <p id="div4">
+            <label>Please select a course (144 in total):</label>
+            <!--<input type="number" name="index" value="Integer here" min="0" max="7320653" required>-->
+            <select class="form-control" name="manufacturer" id="manufacturer">
+                <option selected="selected">choose a course</option>
+                <option>AdelaideX/humbio101x/_</option>
+                <option>RiceX/BIOC372_2x/_</option>
+                <option>TsinghuaX/00720091X/_</option>
+                <option>TsinghuaX/01030132X_2015X/2015_T2</option>
+                <option>TsinghuaX/10421084X/_B_1_</option>
+                <option>TsinghuaX/10421084_2015WV/2015_winter_vacation</option>
+                <option>TsinghuaX/10421084_2015X/2015_T1</option>
+                <option>TsinghuaX/10430484X/_1_</option>
+                <option>TsinghuaX/10430494_2015X/2015_T1</option>
+                <option>TsinghuaX/10610224X/2015_T2</option>
+                <option>TsinghuaX/10800032X/_</option>
+                <option>TsinghuaX/20250103X/2015_T2</option>
+                <option>TsinghuaX/20330334X/_</option>
+                <option>TsinghuaX/20740042X/2015_T2</option>
+                <option>TsinghuaX/30640014X/2014_T2</option>
+                <option>TsinghuaX/60240013_2015X/2015_T1</option>
+                <option>TsinghuaX/70120073X/_</option>
+                <option>TsinghuaX/80511503X/2015_T2</option>
+                <option>TsinghuaX/THUSEM005/_</option>
+                <option>TsinghuaX/THUSEM007/_</option>
+                <option>UC_BerkeleyX/CS169_1x_1/2014_T1</option>
+                <option>UC_BerkeleyX/ColWri2_1x_2015_T1/2015_T1</option>
+                <option>UC_BerkeleyX/ColWri2_3x/2014_T2</option>
+                <option>course-v1:ACCA+FA1-MA1_X+2016_T2</option>
+                <option>course-v1:ACCA+FA2_X+sp</option>
+                <option>course-v1:CAU+08110140_1x+sp</option>
+                <option>course-v1:CHD+24123150+_</option>
+                <option>course-v1:CYCU+cycusheji+2017_T1</option>
+                <option>course-v1:CYCU+cycusheji+2017_T2</option>
+                <option>course-v1:ChongqingUX+CHEM10000X+sp</option>
+                <option>course-v1:ChongqingUX+MGMT31701X+sp</option>
+                <option>course-v1:ECNUx+BIOL0031112013+2015_T2</option>
+                <option>course-v1:HIT+13SC20301820+sp</option>
+                <option>course-v1:HIT+GH47100100+2016_T1</option>
+                <option>course-v1:HIT+GH47100100+2016_T2</option>
+                <option>course-v1:HIT+GH47100100+2017_T1</option>
+                <option>course-v1:HIT+GH47100100+2017_T2</option>
+                <option>course-v1:HIT+GO90801500+2016-T2</option>
+                <option>course-v1:HIT+GO90801500+2016_TS</option>
+                <option>course-v1:HUBU+20170227X+2017_T2</option>
+                <option>course-v1:JLUx+0000045603+sp</option>
+                <option>course-v1:JLUx+gx01640603_103138_1_tv+2015_T1</option>
+                <option>course-v1:MIT+15_390_2x+_</option>
+                <option>course-v1:MITx+6_00_1x+2015_T1</option>
+                <option>course-v1:MITx+6_00_1x+2015_T2</option>
+                <option>course-v1:NBCCx+NBCC000502+_sp</option>
+                <option>course-v1:NCTU+wym+2016_T2</option>
+                <option>course-v1:NPUX+2016001+sp</option>
+                <option>course-v1:NTHU+MOOC_00_006+sp</option>
+                <option>course-v1:NTHU+MOOC_04_001+2015_T2</option>
+                <option>course-v1:NUDT+000601502+_</option>
+                <option>course-v1:NUDT+000601502+sp</option>
+                <option>course-v1:RUCX+AP000010X+2017_T1</option>
+                <option>course-v1:RiceX+AdvBIO_2x+2015_T2</option>
+                <option>course-v1:RiceX+AdvBIO_2x+sp</option>
+                <option>course-v1:RiceX+AdvENVSCI_1x+sp</option>
+                <option>course-v1:RiceX+BIOC372_1x+2016_T2</option>
+                <option>course-v1:RiceX+BIOC372_1x+2017_T1</option>
+                <option>course-v1:RiceX+BIOC372_1x+2017_T2</option>
+                <option>course-v1:RiceX+BIOC372_2x+2016_T2</option>
+                <option>course-v1:RiceX+RELI157x+2016T2</option>
+                <option>course-v1:RiceX+RELI157x+2017_T1</option>
+                <option>course-v1:RiceX+RELI157x+2017_T2</option>
+                <option>course-v1:SDUx+sd010201402+sp</option>
+                <option>course-v1:SEU+00034237_p1+sp</option>
+                <option>course-v1:Stanford+SciWrite+2016_T2</option>
+                <option>course-v1:Stanfordx+SciWrite+2017_T1</option>
+                <option>course-v1:Stanfordx+SciWrite+2017_T2</option>
+                <option>course-v1:TJU+TJU2016001+sp</option>
+                <option>course-v1:TNUA+AO35003+_</option>
+                <option>course-v1:Tsinghua+20150001+2015_T2</option>
+                <option>course-v1:TsinghuaX+00040132X+sp</option>
+                <option>course-v1:TsinghuaX+00612643X_p3+sp</option>
+                <option>course-v1:TsinghuaX+00690302_2+2016_T2</option>
+                <option>course-v1:TsinghuaX+00690342X_p1+sp</option>
+                <option>course-v1:TsinghuaX+00701032X_tv+2015_T1</option>
+                <option>course-v1:TsinghuaX+00720091X_2015_2+2015_T2</option>
+                <option>course-v1:TsinghuaX+00740043X+2016_T1</option>
+                <option>course-v1:TsinghuaX+00740043X+2016_TS</option>
+                <option>course-v1:TsinghuaX+00740043_2x+2017_T1</option>
+                <option>course-v1:TsinghuaX+00740113_1X+sp</option>
+                <option>course-v1:TsinghuaX+00740123X+2016_TS</option>
+                <option>course-v1:TsinghuaX+00740123X+2017_T1</option>
+                <option>course-v1:TsinghuaX+00740123X+2017_T2</option>
+                <option>course-v1:TsinghuaX+01510192X+2016_T2</option>
+                <option>course-v1:TsinghuaX+10421084X_2015_2+sp</option>
+                <option>course-v1:TsinghuaX+10430484X+2016_T1</option>
+                <option>course-v1:TsinghuaX+10610183X_2015_T2+2015_T2</option>
+                <option>course-v1:TsinghuaX+10610183_2X+2017_T2</option>
+                <option>course-v1:TsinghuaX+10610193X+2017_T1</option>
+                <option>course-v1:TsinghuaX+10610193X+2017_T2</option>
+                <option>course-v1:TsinghuaX+10610204_tv+2015_T1</option>
+                <option>course-v1:TsinghuaX+10610224X_p1+sp</option>
+                <option>course-v1:TsinghuaX+10691113X+2017_T1</option>
+                <option>course-v1:TsinghuaX+10691113X+2017_T2</option>
+                <option>course-v1:TsinghuaX+20140064X+2016_T1</option>
+                <option>course-v1:TsinghuaX+20220214X+2017_T1</option>
+                <option>course-v1:TsinghuaX+20220214X+2017_T2</option>
+                <option>course-v1:TsinghuaX+20440333_2015X+sp</option>
+                <option>course-v1:TsinghuaX+20740042X+2016_T1</option>
+                <option>course-v1:TsinghuaX+20740042X+sp</option>
+                <option>course-v1:TsinghuaX+20740084X+2016_T1</option>
+                <option>course-v1:TsinghuaX+30040323X+2016_T1</option>
+                <option>course-v1:TsinghuaX+30130274X+2016_T1</option>
+                <option>course-v1:TsinghuaX+30140393X+2016_T1</option>
+                <option>course-v1:TsinghuaX+30150303X+2015_T2</option>
+                <option>course-v1:TsinghuaX+34000888X_p1+sp</option>
+                <option>course-v1:TsinghuaX+40040152X+sp</option>
+                <option>course-v1:TsinghuaX+40130653X+sp</option>
+                <option>course-v1:TsinghuaX+40670453X+sp</option>
+                <option>course-v1:TsinghuaX+60240202X+2016_T1</option>
+                <option>course-v1:TsinghuaX+61030031X+2016_T2</option>
+                <option>course-v1:TsinghuaX+70150023X_2015_T2+2015_T2</option>
+                <option>course-v1:TsinghuaX+70230063X+sp</option>
+                <option>course-v1:TsinghuaX+70250023X_2015_2+2015_T2</option>
+                <option>course-v1:TsinghuaX+80000822X+2016_TS</option>
+                <option>course-v1:TsinghuaX+80511503X+sp</option>
+                <option>course-v1:TsinghuaX+80512073X+2016_TS</option>
+                <option>course-v1:TsinghuaX+80512073X+2017_T2</option>
+                <option>course-v1:TsinghuaX+80515522X+2016_T1</option>
+                <option>course-v1:TsinghuaX+80515522X+2016_T2</option>
+                <option>course-v1:TsinghuaX+80515522X+2017_T1</option>
+                <option>course-v1:TsinghuaX+80515522X+2017_T2</option>
+                <option>course-v1:TsinghuaX+80590952X+2016_T2</option>
+                <option>course-v1:TsinghuaX+90640012X_p1+sp</option>
+                <option>course-v1:TsinghuaX+AP000002X+2016T2</option>
+                <option>course-v1:TsinghuaX+AP000008X+sp</option>
+                <option>course-v1:TsinghuaX+AP000009X+sp</option>
+                <option>course-v1:TsinghuaX+THU201605X+2016_T1</option>
+                <option>course-v1:TsinghuaX+THU201605X+2016_T2</option>
+                <option>course-v1:TsinghuaX+THU201605X+2017_T1</option>
+                <option>course-v1:TsinghuaX+THU201605X+2017_T2</option>
+                <option>course-v1:TsinghuaX+THU201607+sp</option>
+                <option>course-v1:TsinghuaX+TSINGHUA107+sp</option>
+                <option>course-v1:TsinghuaX+TsinghuaMandarin01+2016_T1</option>
+                <option>course-v1:TsinghuaX+TsinghuaMandarin01+sp</option>
+                <option>course-v1:Tsinghuax+10421065X_2015_T2+2015_T2</option>
+                <option>course-v1:UC_BerkeleyX+ColWri2_2x+sp</option>
+                <option>course-v1:XJTU+ME-XMGL2013-014X+2017_T2</option>
+                <option>course-v1:ZUELX+B0601353+2017_T1</option>
+                <option>course-v1:ZUELX+B0601353+2017_T2</option>
+                <option>course-v1:rcoe+MOOC102+2016_T1</option>
+                <option>course-v1:ustcX+LB05203_a+2016_T2</option>
+                <option>course-v1:xuetangx+credittest1+2017_T1</option>
+
+            </select>
+        </p>
+        <p>
+            <input type="submit" name="submit" class="btn btn-primary" value="Submit"/>
+        </p>
+    </fieldset>
+</form>
+
+</body>

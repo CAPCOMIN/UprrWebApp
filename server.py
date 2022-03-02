@@ -20,7 +20,7 @@ app = Flask(__name__)
 # HomePage
 @app.route("/")
 def home():
-    return render_template("index.html", max=users.shape[0] - 1)
+    return render_template("index.html", version=VERSION, max=users.shape[0] - 1)
 
 
 # ResultPage
