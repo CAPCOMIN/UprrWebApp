@@ -62,14 +62,14 @@ class recommendationGenerator:
         return features, data
 
     def generate_recommendations(self, features, data, print_rec=False):
-        '''
+        """
         Generates and prints the recommendations taking the userID and N (the number of recommendations to be generated)\n
         Parameters:
             features: pd.DataFrame
                 The features dataframe obtained from the function load_data
             data: pd.DataFrame
                 The data dataframe obtained from the function load_data
-            print_rec: bool, default False 
+            print_rec: bool, default False
                 If true, the recommendations are printed. If false, the recommendations are stored in a list
         Returns:
             If print_rec = False, the function returns an ordered list of recommendations
@@ -84,7 +84,7 @@ class recommendationGenerator:
                  如果为真，则打印推荐。 如果为 false，则推荐存储在列表中
          Returns:
              如果 print_rec = False，该函数返回一个有序的推荐列表
-        '''
+        """
         index = data[data['userID'] == self.userID].index.tolist()
 
         # Storig the rows into a new dataframe
@@ -95,12 +95,22 @@ class recommendationGenerator:
         # Applying cosine similarity and storing the matrix
         # 应用余弦相似度并存储矩阵
         cossim_mat = cosine_similarity(X=X.to_numpy(copy=True), Y=features.to_numpy(copy=True), dense_output=False)
-        # print(cossim_mat)
 
+        print(cossim_mat)
+        fcm = open("tmp/tmp_cossim_mat.txt", "w")
+        fcm.truncate(0)
+        np.savetxt("tmp/tmp_cossim_mat.txt", cossim_mat, fmt='%f', delimiter=',')
+        fcm.close()
         # Get top N recommendations
         recomm_indices = self.largest_indices(cossim_mat, self.N, data)
 
-        if (print_rec == True):
+        print(recomm_indices)
+        fri = open("tmp/tmp_recomm_indices.txt", "w")
+        fri.truncate(0)
+        np.savetxt("tmp/tmp_recomm_indices.txt", recomm_indices, fmt='%d', delimiter=',')
+        fri.close()
+
+        if print_rec:
             # Print the recommendations from the obtained recomm_indices
             self.print_recommendations(recomm_indices, data)
 
@@ -113,20 +123,19 @@ class recommendationGenerator:
             for x in data['courseID'][recomm_indices].unique():
                 i += 1
                 recomm.append(x)
-                if (i == self.N):
+                if i == self.N:
                     break
-
             return recomm
 
     def print_recommendations(self, recomm_indices, data):
-        '''
+        """
         Prints out the unique courses from the obtained recommnded indices.\n
         Parameters:
-            recomm_indices: list 
+            recomm_indices: list
                 The list of recommendation indices generated from the function generate_recommendation()
-            data: pd.DataFrame 
+            data: pd.DataFrame
                 The data dataframe obtained from the function load_data()
-        '''
+        """
         i = 0
 
         # print("Based on the courses {} has previously done".format(self.userID))
@@ -134,7 +143,7 @@ class recommendationGenerator:
         for x in data['courseID'][recomm_indices].unique():
             i += 1
             print("Recommendation #{} : {}".format(i, x))
-            if (i == self.N):
+            if i == self.N:
                 break
 
     '''Utility Methods'''
@@ -170,14 +179,14 @@ class recommendationGenerator:
         '''
         n = data['courseID'][indices].unique().shape[0]
         # print(n)
-        if (n < self.N):
+        if n < self.N:
             indices = self.largest_indices(ary, top_N + (top_N - n), data)
 
         # Performing MOD by the orignal size as we initially flattened the array
         indices = indices % ary.shape[1]
-
+        # print("indices")
         # print(indices)
-
+        # print("indices end")
         return indices
 
     # def done_courses(self)

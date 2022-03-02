@@ -1,170 +1,223 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Results page</title>
-		<link rel="stylesheet" type="text/css" href="static/style.css">
+<head>
+    <title>Results page</title>
+    <link rel="stylesheet" type="text/css" href="static/style.css">
 
-		<title>Recommendation System</title>
-		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-		<link rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js">
-		</script>
-		<script>
-			window.onload = function() {
-				var run = document.getElementById("run");
-				var btn = document.getElementById("btn");
-				var speed = 1;
-				var timer = null;
-				var alpha = 75;
-				run.onmouseover = function() {
-					startrun(90);
-				}
-				run.onmouseout = function() {
-					startrun(75);
-				}
-				function startrun(target) {
-					clearInterval(timer);
-					timer = setInterval(function() {
-						if (target > alpha) {
-							speed = 3;
-						} else {
-							speed = -3;
-						}
-						if (alpha == target) {
-							clearInterval(timer);
-						} else {
-							alpha = alpha + speed;
-							run.style.filter = 'alpha(opacity=' + alpha + ')';
-							run.style.opacity = alpha / 100;
-							document.title = alpha;
-						}
-					}, 75)
-				}
-			}
-		</script>
-
-		<style>
-			.return {
-				background-color: rgb(190, 221, 149);
-				border: 2px solid black;
-				color: rgb(44, 57, 172);
-				padding: 5px 10px;
-				text-align: center;
-				display: inline-block;
-				font-size: 20px;
-				margin: 10px 30px;
-				cursor: pointer;
-			}
-
-            body {
-
-                background-image: url(../static/img/4.png);
-                background-repeat: no-repeat;
-                background-attachment: fixed;
-                text-align: center;
-                background-size: cover;
+    <title>Recommendation System</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js">
+    </script>
+    <script>
+        window.onload = function () {
+            var run = document.getElementById("run");
+            var btn = document.getElementById("btn");
+            var speed = 1;
+            var timer = null;
+            var alpha = 75;
+            run.onmouseover = function () {
+                startrun(90);
+            }
+            run.onmouseout = function () {
+                startrun(75);
             }
 
-            #divbar {
-                font-family: "Titillium Web";
-                color: beige;
+            function startrun(target) {
+                clearInterval(timer);
+                timer = setInterval(function () {
+                    if (target > alpha) {
+                        speed = 3;
+                    } else {
+                        speed = -3;
+                    }
+                    if (alpha == target) {
+                        clearInterval(timer);
+                    } else {
+                        alpha = alpha + speed;
+                        run.style.filter = 'alpha(opacity=' + alpha + ')';
+                        run.style.opacity = alpha / 100;
+                        document.title = alpha;
+                    }
+                }, 75)
             }
+        }
+    </script>
 
-            #div1 {
-                font-family: "Times New Roman";
-            }
+    <style>
+        .return {
+            background-color: rgb(190, 221, 149);
+            border: 2px solid black;
+            color: rgb(44, 57, 172);
+            padding: 5px 10px;
+            text-align: center;
+            display: inline-block;
+            font-size: 20px;
+            margin: 10px 30px;
+            cursor: pointer;
+        }
 
-            #div2 {
-                font-family: "Times New Roman";
-                font-size: 18px;
-            }
+        body {
 
-            #div3 {
-                font-family: "Times New Roman";
-                color: #ffffff;
-            }
+            background-image: url(../static/img/4.png);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            text-align: center;
+            background-size: cover;
+        }
 
-            #div5 {
-                font-family: "Titillium Web Bold";
-                font-weight: bold;
-                color: beige;
-            }
-			
-			#div6 {
-			    opacity: 0.8;
-			}
-			
-            #run {
-                width: 1000px;
-                margin: 0 auto;
-                background-color: #ffffff;
+        #divbar {
+            font-family: "Titillium Web";
+            color: beige;
+        }
 
-                border: 1px solid black;
-                font-weight: bold;
-                border-radius: calc(1.25rem);
-			
-				opacity: 0.75;
-                filter: alpha(opacity=75);
-            }
-        </style>
+        #div0 {
+            font-family: "Times New Roman";
+            color: beige;
+        }
 
-    </head>
-    <body>
+        #div1 {
+            font-family: "Times New Roman";
 
-    <nav class="navbar navbar-inverse" id="div6">
-        <div class="container-fluid" id="div1">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="/" id="div5">UPRR Web App</a>
-            </div>
-            <!-- <ul class="nav navbar-nav" id="div1">
-                <li class="active"><a href="/">Home</a></li>
-            </ul> -->
-            <div id="">
-                <a class="navbar-brand"> </a>
-            </div>
-            <div class="navbar-header" id="divbar">
-                <a class="navbar-brand" href="/">Home</a>
-            </div>
+        }
 
-            <div class="navbar-header" id="divbar">
-                <a class="navbar-brand" href="/search">Search</a>
-            </div>
+        #div2 {
+            font-family: "Times New Roman";
+            font-size: 18px;
+        }
 
-            <div class="navbar-header" id="divbar">
-                <a class="navbar-brand" href="/searchportrait">User Portrait</a>
-            </div>
+        #div3 {
+            font-family: "Consolas";
+            font-size: 16px;
+        }
 
-            <div class="nav navbar-nav navbar-right" id="div1">
-                <!-- <a href="http://localhost:3000/" class="btn btn-info" style="margin-top: 5px;" target="_blank">Chat for Assistance</a> -->
-                <a href="https://youdi1012.github.io/" class="btn btn-info" style="margin-top: 5px;"
-                   target="_blank">LLD Blog</a>
+        #div5 {
+            font-family: "Titillium Web Bold";
+            font-weight: bold;
+            color: beige;
+        }
 
-                <a href="https://zxy.link/" class="btn btn-info" style="margin-top: 5px;" target="_blank">ZXY
-                    Blog</a>
-				
-					<a href="https://konn-submarine-bu.github.io/" class="btn btn-info" style="margin-top: 5px;" target="_blank">LY
-						Blog</a>
-				</div>
-			</div>
-		</nav>
+        #div6 {
+            opacity: 0.8;
+        }
 
-		<div id="run">
+        #run {
+            width: 1000px;
+            margin: 0 auto;
+            background-color: #ffffff;
 
-			<h2 id="div1">Results Page</h2>
-			<h3 id="div1">Based on the courses user: {{userID}} has previously done </h3>
-			<ol id="div2">
-				{% for rec in rec_list %}
-				<li>{{ rec }}</li>
-				{% endfor %}
-			</ol>
+            border: 2px solid gray;
+            font-weight: bold;
+            border-radius: calc(2.2rem);
 
-			<a href='/' id="div1">
-				<button class="return">
-					Try another query
-				</button>
-			</a>
-		</div>
-	</body>
+            opacity: 0.75;
+            filter: alpha(opacity=75);
+        }
+    </style>
+
+</head>
+<body>
+
+<nav class="navbar navbar-inverse" id="div6">
+    <div class="container-fluid" id="div1">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/" id="div5">UPRR Web App</a>
+        </div>
+        <!-- <ul class="nav navbar-nav" id="div1">
+            <li class="active"><a href="/">Home</a></li>
+        </ul> -->
+        <div id="">
+            <a class="navbar-brand"> </a>
+        </div>
+        <div class="navbar-header" id="divbar">
+            <a class="navbar-brand" href="/">Home</a>
+        </div>
+
+        <div class="navbar-header" id="divbar">
+            <a class="navbar-brand" href="/search">Search</a>
+        </div>
+
+        <div class="navbar-header" id="divbar">
+            <a class="navbar-brand" href="/searchportrait">User Portrait</a>
+        </div>
+
+        <div class="nav navbar-nav navbar-right" id="div1">
+            <!-- <a href="http://localhost:3000/" class="btn btn-info" style="margin-top: 5px;" target="_blank">Chat for Assistance</a> -->
+            <a href="https://youdi1012.github.io/" class="btn btn-info" style="margin-top: 5px;"
+               target="_blank">LLD Blog</a>
+
+            <a href="https://zxy.link/" class="btn btn-info" style="margin-top: 5px;" target="_blank">ZXY
+                Blog</a>
+
+            <a href="https://konn-submarine-bu.github.io/" class="btn btn-info" style="margin-top: 5px;"
+               target="_blank">LY
+                Blog</a>
+        </div>
+    </div>
+</nav>
+<br>
+<h1 id="div0">
+    Related Information of Recommendations
+</h1>
+<br>
+
+<div id="run">
+
+    <h2 id="div1">Recommendation Results</h2>
+    <h3 id="div1">Based on the courses user: {{ userID }} has previously done </h3>
+    <ol id="div2">
+        {% for rec in rec_list %}
+            <li>{{ rec }}</li>
+        {% endfor %}
+    </ol>
+
+    <a href='/' id="div1">
+        <button class="return">
+            Try another query
+        </button>
+    </a>
+</div>
+<br>
+<div id="run">
+
+    <h2 id="div1">Cosine Similarity Matrix</h2>
+    <h3 id="div1">Based on the courses user: {{ userID }} has previously done </h3>
+    <h3 id="div3">Only a portion of the data is shown on this page.<br> To access the full data please consult the
+        tmp/tmp_cossim_mat.txt file. </h3>
+    <ol id="div2">
+        {% for cm in cm_list %}
+            {{ cm }}
+        {% endfor %}
+    </ol>
+    <h3 id="div1">...</h3>
+
+
+    <a href='/' id="div1">
+        <button class="return">
+            Try another query
+        </button>
+    </a>
+</div>
+<br>
+<div id="run">
+
+    <h2 id="div1">Recommendations Indices</h2>
+    <h3 id="div1">Based on the courses user: {{ userID }} has previously done </h3>
+    <h3 id="div3">To access the raw data please consult the tmp/tmp_recomm_indices.txt file. </h3>
+
+    <ol id="div2">
+        {% for ri in ri_list %}
+            {{ ri }}
+        {% endfor %}
+    </ol>
+
+    <a href='/' id="div1">
+        <button class="return">
+            Try another query
+        </button>
+    </a>
+</div>
+</body>

@@ -43,7 +43,18 @@ def result():
         model = recommendationGenerator(userID, N)
         recomm = model.generate_recommendations(features, data)
 
-        return render_template("result.html", userID=userID, rec_list=recomm)
+        fcm = open("tmp/tmp_cossim_mat.txt", "r")
+        scm = fcm.read()
+        lcm = scm.split(',')
+        lcm = lcm[0:253]
+        fcm.close()
+
+        fri = open("tmp/tmp_recomm_indices.txt", "r")
+        sri = fri.read()
+        lri = sri.split('\n')
+        fri.close()
+
+        return render_template("result.html", userID=userID, rec_list=recomm, cm_list=lcm, ri_list=lri)
 
     else:
 
@@ -133,6 +144,7 @@ def userportrait():
         f.close()
         wc = userWordCould.WC()
         wc.draw_wordcloud()
+
         return render_template("userportrait.html", userID=user, rec_list=featureList)
 
     else:
