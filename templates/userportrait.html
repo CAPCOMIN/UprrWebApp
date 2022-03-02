@@ -5,6 +5,7 @@
 		<link rel="stylesheet" type="text/css" href="static/style.css">
 
 		<title>Recommendation System</title>
+		
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -79,7 +80,7 @@
 
             #div3 {
                 font-family: "Times New Roman";
-                color: #ffffff;
+                color: beige;
             }
 
             #run {
@@ -94,14 +95,28 @@
                 opacity: 0.6;
                 filter: alpha(opacity=60);
             }
+			.transbox img {
+							width:66% ; 
+							height:66%;
+							margin: 0 auto;
+							border: 1px solid black;
+							opacity: 0.9;
+							filter: alpha(opacity=90);
+							/* IE8 及更早版本 */
+							font-weight: bold;
+							border-radius: calc(1.25rem);
+						}
+
         </style>
 
     </head>
     <body>
-
     <nav class="navbar navbar-inverse">
         <div class="container-fluid" id="div1">
             <div class="navbar-header">
+				
+				
+				
                 <a class="navbar-brand" href="/" id="div3">Recommendation System</a>
             </div>
             <!-- <ul class="nav navbar-nav" id="div1">
@@ -159,7 +174,7 @@
     <script>
         $randNum = Math.random();
     </script>
-    <img src="../static/images/user_img.jpg"/>
-    <!-- 刷新后图片不变——未解决 -->
-    <!--   <img src="../static/images/user_img.jpg?rand=$randNum" /> -->
+	<div class="transbox">
+		<img src="../static/images/user_img.jpg"/>
+	</div>
     </body>
