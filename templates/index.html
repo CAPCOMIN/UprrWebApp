@@ -93,8 +93,14 @@
 
 			#div7 {
 				opacity: 0.8;
+				width: 100%;
+				height: auto;
+				top: 0;
+				left: 0;
+				z-index: 2;
+				position: fixed;
 			}
-
+			
 			footer {
 				position: absolute;
 				bottom: 0;
@@ -147,7 +153,7 @@
 
 
 	<body>
-
+		
 		<nav class="navbar navbar-inverse" id="div7">
 			<div class="container-fluid">
 				<div class="navbar-header">
@@ -187,7 +193,7 @@
 
 			</div>
 		</nav>
-
+		<br><br>
 		<h1 id="div1">
 			Research on User Portrait and Resource Recommendation <br> of Online Learning Platform Based on <br>
 			Collaborative
@@ -220,11 +226,11 @@
 				<legend id="div4">Text input</legend>
 				<p id="div3">
 					<label>Insert an index between 0 to {{ max }} to choose a USER ID</label>
-					<input type="number" name="index" value="Integer here" min="0" max="39000" required>
+					<input type="number" name="index" value="22692" min="0" max="39000" required>
 				</p>
 				<p id="div3">
 					<label for="N">Number of Recommendations</label>
-					<input type="number" name="N" value="Integer here" min="1" max="100" required>
+					<input type="number" name="N" value="10" min="1" max="100" required>
 				</p>
 				<p>
 					<input type="submit" name="submit" class="btn btn-primary" value="Submit" />
