@@ -10,6 +10,7 @@ sys.path.append(PROJECT_PATH)
 # Importing required libraries
 from flask import Flask, render_template, request
 from Recommendation_Generator.generator import recommendationGenerator
+VERSION = "1.1.1 Beta"
 
 features, data = recommendationGenerator.load_data(recommendationGenerator, datapath=DATA_PATH)
 users = data['userID'].unique()

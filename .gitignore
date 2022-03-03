@@ -1,3 +1,5 @@
 .vscode/
 Input_Preprocessing/__pycache__/
 Recommendation_Generator/__pycache__/
+__pycache__/
+configs.py
