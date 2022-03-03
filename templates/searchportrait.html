@@ -1,201 +1,307 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Search Portrait page</title>
-    <link rel="stylesheet" type="text/css" href="static/style.css">
-    <title>Recommendation System</title>
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js">
-    </script>
-    <script>
-        window.onload = function () {
-            var run = document.getElementById("run");
-            var btn = document.getElementById("btn");
-            var speed = 1;
-            var timer = null;
-            var alpha = 75;
-            run.onmouseover = function () {
-                startrun(90);
-            }
-            run.onmouseout = function () {
-                startrun(75);
-            }
+	<head>
+		<title>Search Portrait page</title>
+		<link rel="stylesheet" type="text/css" href="static/style.css">
+		<title>Recommendation System</title>
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<link rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js">
+		</script>
+		<script>
+			window.onload = function() {
+				var run = document.getElementById("run");
+				var btn = document.getElementById("btn");
+				var speed = 1;
+				var timer = null;
+				var alpha = 75;
+				run.onmouseover = function() {
+					startrun(90);
+				}
+				run.onmouseout = function() {
+					startrun(75);
+				}
 
-            function startrun(target) {
-                clearInterval(timer);
-                timer = setInterval(function () {
-                    if (target > alpha) {
-                        speed = 3;
-                    } else {
-                        speed = -3;
-                    }
-                    if (alpha == target) {
-                        clearInterval(timer);
-                    } else {
-                        alpha = alpha + speed;
-                        run.style.filter = 'alpha(opacity=' + alpha + ')';
-                        run.style.opacity = alpha / 100;
-                        document.title = alpha;
-                    }
-                }, 75)
-            }
-        }
-    </script>
+				function startrun(target) {
+					clearInterval(timer);
+					timer = setInterval(function() {
+						if (target > alpha) {
+							speed = 3;
+						} else {
+							speed = -3;
+						}
+						if (alpha == target) {
+							clearInterval(timer);
+						} else {
+							alpha = alpha + speed;
+							run.style.filter = 'alpha(opacity=' + alpha + ')';
+							run.style.opacity = alpha / 100;
+							document.title = alpha;
+						}
+					}, 75)
+				}
+			}
+		</script>
 
-    <style>
-        .return {
-            background-color: rgb(190, 221, 149);
-            border: 2px solid black;
-            color: rgb(44, 57, 172);
-            padding: 5px 10px;
-            text-align: center;
-            display: inline-block;
-            font-size: 20px;
-            margin: 10px 30px;
-            cursor: pointer;
-        }
+		<style>
+			.return {
+				background-color: rgb(190, 221, 149);
+				border: 2px solid black;
+				color: rgb(44, 57, 172);
+				padding: 5px 10px;
+				text-align: center;
+				display: inline-block;
+				font-size: 20px;
+				margin: 10px 30px;
+				cursor: pointer;
+			}
 
-        body {
+			body {
 
-            background-image: url(../static/img/4.png);
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            text-align: center;
-            background-size: cover;
-        }
+				background-image: url(../static/img/4.png);
+				background-repeat: no-repeat;
+				background-attachment: fixed;
+				text-align: center;
+				background-size: cover;
+			}
 
-        #div1 {
-            font-family: "Times New Roman";
-            color: beige;
-        }
+			#div1 {
+				font-family: "Times New Roman";
+				color: beige;
+			}
 
-        #div2 {
-            font-family: "Times New Roman";
-            font-size: 18px;
-        }
+			#div2 {
+				font-family: "Times New Roman";
+				/* color: beige; */
+				font-size: 20px;
+				text-align: left;
+				line-height: calc(30px);
+			}
 
-        #div3 {
-            font-family: "Times New Roman";
-            color: beige;
-        }
+			#div3 {
+				font-family: "Times New Roman";
+				color: beige;
+			}
 
-        #div5 {
-            font-family: "Titillium Web Bold";
-            font-weight: bold;
-            color: beige;
-        }
-		
-		#div6 {
-		    opacity: 0.8;
-		}
-		
-        #divbar {
-            font-family: "Titillium Web";
-            color: beige;
-        }
+			#div5 {
+				font-family: "Titillium Web Bold";
+				font-weight: bold;
+				color: beige;
+			}
 
-        #run {
-            width: 1000px;
-            height: 180px;
-            margin: 0 auto;
-            background-color: #ffffff;
-            /* background: #06c; */
+			#div6 {
+				opacity: 0.8;
+			}
 
-            border: 1px solid black;
-            /* border: 1px solid #000; */
-            font-weight: bold;
-            border-radius: calc(1.25rem);
+			#divbar {
+				font-family: "Titillium Web";
+				color: beige;
+			}
 
-            opacity: 0.75;
-            filter: alpha(opacity=75);
-        }
-    </style>
+			#run {
+				width: 1000px;
+				height: 180px;
+				margin: 0 auto;
+				background-color: #ffffff;
+				/* background: #06c; */
 
-</head>
-<body>
-<script type="text/javascript" src="{{ url_for('static', filename='nprogress.js') }}"></script>
-<script type="text/javascript" src="{{ url_for('static', filename='jquery.js') }}"></script>
-<link rel="stylesheet" type="text/css" href="../nprogress-master/nprogress.css" rel="external nofollow"/>
-<script type="text/javascript" src="../static/nprogress.js"></script>
-<nav class="navbar navbar-inverse" id="div6">
-    <div class="container-fluid" id="div1">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/" id="div5">UPRR Web App</a>
-        </div>
-        <!-- <ul class="nav navbar-nav" id="div1">
+				border: 1px solid black;
+				/* border: 1px solid #000; */
+				font-weight: bold;
+				border-radius: calc(1.25rem);
+
+				opacity: 0.75;
+				filter: alpha(opacity=75);
+			}
+
+			#box {
+				width: 1000px;
+				margin: 0 auto;
+				background-color: #ffffff;
+
+				border: 2px solid gray;
+				font-weight: bold;
+				border-radius: calc(2.2rem);
+
+				opacity: 0.75;
+				padding-right: calc(30px);
+				padding-left: calc(30px);
+				padding-top: calc(20px);
+			}
+		</style>
+
+	</head>
+	<body>
+		<script type="text/javascript" src="{{ url_for('static', filename='nprogress.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='jquery.js') }}"></script>
+		<link rel="stylesheet" type="text/css" href="../nprogress-master/nprogress.css" rel="external nofollow" />
+		<script type="text/javascript" src="../static/nprogress.js"></script>
+		<nav class="navbar navbar-inverse" id="div6">
+			<div class="container-fluid" id="div1">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="/" id="div5">UPRR Web App</a>
+				</div>
+				<!-- <ul class="nav navbar-nav" id="div1">
             <li class="active"><a href="/">Home</a></li>
         </ul> -->
-        <div id="">
-            <a class="navbar-brand"> </a>
-        </div>
-        <div class="navbar-header" id="divbar">
-            <a class="navbar-brand" href="/">Home</a>
-        </div>
+				<div id="">
+					<a class="navbar-brand"> </a>
+				</div>
+				<div class="navbar-header" id="divbar">
+					<a class="navbar-brand" href="/">Home</a>
+				</div>
 
-        <div class="navbar-header" id="divbar">
-            <a class="navbar-brand" href="/search">Search</a>
-        </div>
+				<div class="navbar-header" id="divbar">
+					<a class="navbar-brand" href="/search">Search</a>
+				</div>
 
-        <div class="navbar-header" id="divbar">
-            <a class="navbar-brand" href="/searchportrait">User Portrait</a>
-        </div>
+				<div class="navbar-header" id="divbar">
+					<a class="navbar-brand" href="/searchportrait">User Portrait</a>
+				</div>
 
-        <div class="nav navbar-nav navbar-right" id="div1">
-            <!-- <a href="http://localhost:3000/" class="btn btn-info" style="margin-top: 5px;" target="_blank">Chat for Assistance</a> -->
-            <a href="https://youdi1012.github.io/" class="btn btn-info" style="margin-top: 5px;"
-               target="_blank">LLD Blog</a>
+				<div class="nav navbar-nav navbar-right" id="div1">
+					<!-- <a href="http://localhost:3000/" class="btn btn-info" style="margin-top: 5px;" target="_blank">Chat for Assistance</a> -->
+					<a href="https://youdi1012.github.io/" class="btn btn-info" style="margin-top: 5px;"
+						target="_blank">LLD Blog</a>
 
-            <a href="https://zxy.link/" class="btn btn-info" style="margin-top: 5px;" target="_blank">ZXY
-                Blog</a>
+					<a href="https://zxy.link/" class="btn btn-info" style="margin-top: 5px;" target="_blank">ZXY
+						Blog</a>
 
-            <a href="https://konn-submarine-bu.github.io/" class="btn btn-info" style="margin-top: 5px;"
-               target="_blank">LY
-                Blog</a>
-        </div>
-    </div>
-</nav>
-<div>
-    <h1 id="div1">User Portrait</h1>
-</div>
+					<a href="https://konn-submarine-bu.github.io/" class="btn btn-info" style="margin-top: 5px;"
+						target="_blank">LY
+						Blog</a>
+				</div>
+			</div>
+		</nav>
+		<div>
+			<h1 id="div1">Generate User Portrait based on students' courses: </h1>
+		</div>
 
-<div>
-    <p id="div2">
 
-    </p>
-</div>
+		<form method="post" action="/userportrait" id="run">
+			<fieldset>
+				<legend id="div4">Input the User ID</legend>
+				<p id="div4">
+					<label>Insert the USER ID of one student to get the User Portrait </label>
+					<input type="number" name="index" value="22692" min="0" max="7320653" required>
+				</p>
+				<br>
+				<p>
+					<button id="btn" type="submit" class="btn btn-primary">Submit</button>
+					<!-- <input id="btn" type="submit" name="submit" class="btn btn-primary" value="Submit"/>-->
+				</p>
+			</fieldset>
+		</form>
+		<div>
+			<h1 id="div1">WordCloud Introduce: </h1>
+		</div>
+		<div id="box">
+			<p id="div2">
+				<a href="https://amueller.github.io/word_cloud/index.html">Offical Document</a><br>
+				1. Installation: <br>pip install wordcloud<br><br>
+				2. Construct the wordcloud class:<br>
+				from wordcloud import WordCloud <br>
 
-<form method="post" action="/userportrait" id="run">
-    <fieldset>
-        <legend id="div4">Input the User ID</legend>
-        <p id="div4">
-            <label>Insert the USER ID of one student to get the User Portrait </label>
-            <input type="number" name="index" value="22692" min="0" max="7320653" required>
-        </p>
-        <br>
-        <p>
-            <button id="btn" type="submit" class="btn btn-primary">Submit</button>
-            <!-- <input id="btn" type="submit" name="submit" class="btn btn-primary" value="Submit"/>-->
-        </p>
-    </fieldset>
-</form>
-<script>
-    $(document)
-        .ajaxStart(function () {
-            //请求开始了
-            NProgress.start();
-        })
-        .ajaxStop(function () {
-            //请求结束了
-            NProgress.done();
-        })
-    $('#btn').on('click', function () {
-        $.get('time.php')
+				wc = WordCloud(parameter)<br>
 
-    })
-</script>
+				parameter <br>
+				font_path: Path to font file (OTF or TTF), string<br>
 
-</body>
+				width: width of drawing area, default 400, integer<br>
+
+				height: height of drawing area, default 200, integer<br>
+
+				prefer_horizontal: the word prefers to be placed horizontally or vertically, if the value is less than
+				1, the word will be rotated if it is not suitable, float, default 0.9<br>
+
+				mask: whether to draw words within the given shape, this parameter enables us to draw various word
+				cloud images according to the given outline shape, when this parameter is not None, width and height
+				will be ignored, nd-array type or None, default None<br>
+
+				scale: The scale of the calculation process and the actual drawing, floating point, default 1<br>
+
+				min_font_size: The minimum font size when drawing, integer, default 4<br>
+
+				font_step: The iteration step size of the font size, if it is greater than 1, there may be wrong
+				arrangement, integer, default 1<br>
+
+				max_words: The maximum number of words used for drawing, integer, default 200<br>
+
+				stopwords: Excluded word set, string set or None, when the default is None, the built-in string set
+				will be used<br>
+
+				background_color: background color, color value, default is 'black'<br>
+
+				max_font_size: The maximum font size when drawing, integer or None, the default is None<br>
+
+				mode: mode, the default is 'RGB', when it is 'RGBA', if the background color is None, a transparent
+				background will be obtained<br>
+
+				relative_scaling: The weight of word occurrence frequency to its font size. When the value is 0, only
+				the influence of word ranking on font size is considered. When the value is 1, words with twice the
+				frequency of occurrence have twice the font size. The general value is set 0.5 is the best, float<br>
+
+				color_func: color function, used to generate word cloud images of words with different colors, the
+				default is None<br>
+
+				regexp: Regular expression, used for word segmentation, the default is r"\w[\w']+"<br>
+
+				collocations: whether to include bigrams, boolean, the default is True<br>
+
+				colormap: colormap, randomly assigns a color to each word, if color_func is specified, this parameter
+				is ignored, string or matplotlib colormap type, default is 'viridis'<br>
+
+				normalize_plurals: remove the 's' at the end of the word, boolean, the default is True<br><br>
+				Attributes:<br>
+				wc.words_<br>
+				Word example corresponding to frequency, dictionary type {string: float}<br>
+
+				wc.layout_<br>
+				Record the value, font size, position, orientation and color of each word, a list of tuples, each in
+				the format (string, int, (int, int), int, color)<br><br>
+				Method: <br>
+				wc.generate(text)<br>
+				generate word cloud map from text<br>
+
+				wc.fit_words(frequencies)<br>
+				Generate word cloud map based on given words and frequencies<br>
+				frequencies: array of tuples, each tuple contains a word and its frequency<br>
+
+				wc.generate_from_frequencies(frequencies, max_font_size=None)<br>
+				Generate word cloud map based on given words and frequencies<br>
+				frequencies: dictionary containing string(word):float(frequency) value pairs<br>
+				max_font_size: Maximum font size<br>
+
+				wc.process_text(text)<br>
+				Segment the long text and remove the words in the stopwords set<br>
+				return dictionary, dict (string, int)<br>
+
+				wc.recolor(random_state=None, color_func=None, colormap=None)<br>
+				recolor<br>
+				random_state: random seed, integer or None<br>
+
+				wc.to_array()<br>
+				Return word cloud map in numpy matrix format<br>
+
+				to_file(filename)<br>
+				Return word cloud map in image format<br>
+				filename: save path<br><br>
+				Generate a color function from the color of a given image: <br>
+				from wordcloud import ImageColorGenerator <br>
+				pic_color=ImageColorGenerator(pic) <br><br>
+				Generate random colors (default color generation): <br>
+				wc.random_color_func(word=None, font_size=None, position=None, orientation=None, font_path=None,
+				random_state=None) <br>
+				#random_state: If given a random object, the number that will be used as a random seed for it to
+				generate <br>
+
+			</p>
+
+
+		</div>
+
+
+	</body>

@@ -104,12 +104,14 @@
 
 			#div1 {
 				font-family: "Times New Roman";
+				color: beige;
 			}
-
+			
 			#div2 {
                 font-family: "Times New Roman";
-                color: beige;
-                font-size: 18px;
+                /* color: beige; */
+                font-size: 20px;
+                text-align: left;
             }
 
             #div3 {
@@ -163,6 +165,21 @@
 				opacity: 0.75;
                 filter: alpha(opacity=75);
             }
+			
+			#box{
+				width: 1000px;
+				margin: 0 auto;
+				background-color: #ffffff;
+				
+				border: 2px solid gray;
+				font-weight: bold;
+				border-radius: calc(2.2rem);
+				
+				opacity: 0.75;
+				padding-right: calc(30px);
+				padding-left: calc(30px);
+				padding-top: calc(20px);
+			}
         </style>
 
     </head>
@@ -206,17 +223,9 @@
 			</div>
 		</nav>
 
-		<div>
-			<p id="div2">
-				This project takes the log files of user as initial input and extracts their study patterns based on
-				their
-				online activity.
-				The recommendation generator takes those features as input, tries to find similar users based comparing
-				the
-				study patterns and recommends courses they completed.
-			</p>
-		</div>
-
+		<h2 id="div1">
+			Export the selected courses based on the entered student ID:
+		</h2>
 
 		<form method="post" action="/searchResult" id="run">
 			<fieldset>
@@ -239,8 +248,11 @@
 		<br>
 		<br>
 		<br>
-
-
+		
+		<h2 id="div1">
+			Export student IDs based on entered courses: 
+		</h2>
+		
 		<form method="post" action="/searchResult" id="runs">
 			<fieldset>
 				<legend id="div4">Search students for each course</legend>
