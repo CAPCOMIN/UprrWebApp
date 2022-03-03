@@ -76,16 +76,24 @@
 			}
 
 			#div2 {
-				font-family: "Times New Roman";
+				font-family: "Consolas";
 				/* color: beige; */
-				font-size: 20px;
+				font-size: 17px;
 				text-align: left;
 				line-height: calc(30px);
 			}
 
 			#div3 {
 				font-family: "Times New Roman";
-				color: beige;
+				/* color: beige; */
+				font-size: 19px;
+			}
+			
+			#div4 {
+				font-family: "Titillium Web";
+				/* color: slategray; */
+				font-size: 20px;
+				line-height: calc(45px);
 			}
 
 			#div5 {
@@ -111,7 +119,11 @@
 				text-align: left;
 				line-height: calc(30px);
 			}
-
+			
+			#div8 {
+				margin-top: calc(6px);
+			}
+			
 			#divbar {
 				font-family: "Titillium Web";
 				color: beige;
@@ -119,7 +131,7 @@
 
 			#run {
 				width: 1000px;
-				height: 180px;
+				height: inherit;
 				margin: 0 auto;
 				background-color: #ffffff;
 				/* background: #06c; */
@@ -131,6 +143,8 @@
 
 				opacity: 0.75;
 				filter: alpha(opacity=75);
+				padding-top: calc(5px);
+				padding-bottom: calc(5px);
 			}
 
 			#box {
@@ -198,13 +212,13 @@
 		<form method="post" action="/userportrait" id="run">
 			<fieldset>
 				<legend id="div4">Input the User ID</legend>
-				<p id="div4">
+				<p id="div3">
 					<label>Insert the USER ID of one student to get the User Portrait </label>
 					<input type="number" name="index" value="22692" min="0" max="7320653" required>
 				</p>
-				<br>
 				<p>
-					<button id="btn" type="submit" class="btn btn-primary">Submit</button>
+					<!-- <button id="btn" type="submit" class="btn btn-primary">Submit</button> -->
+					<input type="submit" name="submit" class="btn btn-primary" value="Submit"  id="div8"/>
 					<!-- <input id="btn" type="submit" name="submit" class="btn btn-primary" value="Submit"/>-->
 				</p>
 			</fieldset>

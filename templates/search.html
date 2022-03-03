@@ -118,9 +118,17 @@
 
             #div3 {
                 font-family: "Times New Roman";
-                color: beige;
+                /* color: beige; */
+				font-size: 19px;
             }
-
+			
+			#div4 {
+				font-family: "Titillium Web";
+				/* color: slategray; */
+				font-size: 20px;
+				line-height: calc(45px);
+			}
+			
             #divbar {
                 font-family: "Titillium Web";
                 color: beige;
@@ -141,10 +149,14 @@
 				z-index: 2;
 				position: fixed;
 			}
-
+			
+			#div7 {
+				margin-top: calc(6px);
+			}
+			
             #run {
                 width: 1000px;
-                height: 180px;
+                height: inherit;
                 margin: 0 auto;
                 background-color: #ffffff;
                 /* background: #06c; */
@@ -156,11 +168,13 @@
 
 				opacity: 0.75;
 				filter: alpha(opacity=75);
+				padding-top: calc(5px);
+				padding-bottom: calc(5px);
 			}
 
 			#runs {
 				width: 1000px;
-				height: 180px;
+				height: inherit;
 				margin: 0 auto;
 				background-color: #ffffff;
 				/* background: #06c; */
@@ -172,6 +186,8 @@
 
 				opacity: 0.75;
                 filter: alpha(opacity=75);
+				padding-top: calc(5px);
+				padding-bottom: calc(5px);
             }
 			
 			#box{
@@ -235,19 +251,16 @@
 			Export the selected courses based on the entered student ID:
 		</h2>
 
-		<form method="post" action="/searchResult" id="run">
+		<form method="post" action="/searchresult" id="run">
 			<fieldset>
 				<legend id="div4">Search courses for each student</legend>
-				<p>
-
-				</p>
-				<p id="div4">
+				<p id="div3">
 					<label>Insert an index between 0 to {{ max }} to choose a USER ID</label>
-					<input type="number" name="index" value="Integer here" min="0" max="7320653" required>
+					<input type="number" name="index" value="22692" min="0" max="7320653" required>
 				</p>
-				<br>
 				<p>
-					<input type="submit" name="submit" class="btn btn-primary" value="Submit" />
+				
+					<input type="submit" name="submit" class="btn btn-primary" value="Submit" id="div7" />
 				</p>
 			</fieldset>
 		</form>
@@ -261,13 +274,13 @@
 			Export student IDs based on entered courses: 
 		</h2>
 		
-		<form method="post" action="/searchResult" id="runs">
+		<form method="post" action="/searchresult" id="runs">
 			<fieldset>
 				<legend id="div4">Search students for each course</legend>
-				<p id="div4">
+				<p id="div3">
 					<label>Please select a course (144 in total):</label>
 					<!--<input type="number" name="index" value="Integer here" min="0" max="7320653" required>-->
-					<select class="form-control" name="manufacturer" id="manufacturer">
+					<select class="form-control" name="manufacturer" id="div3">
 						<option selected="selected">choose a course</option>
 						<option>AdelaideX/humbio101x/_</option>
 						<option>RiceX/BIOC372_2x/_</option>
@@ -417,7 +430,7 @@
 					</select>
 				</p>
 				<p>
-					<input type="submit" name="submit" class="btn btn-primary" value="Submit" />
+					<input type="submit" name="submit" class="btn btn-primary" value="Submit" id="div7" />
 				</p>
 			</fieldset>
 		</form>

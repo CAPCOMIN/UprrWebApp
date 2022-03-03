@@ -11,7 +11,7 @@ sys.path.append(PROJECT_PATH)
 from flask import Flask, render_template, request
 from Recommendation_Generator.generator import recommendationGenerator
 
-VERSION = "1.1.1 Beta"
+VERSION = "1.1.2 Beta"
 
 features, data = recommendationGenerator.load_data(recommendationGenerator, datapath=DATA_PATH)
 users = data['userID'].unique()
@@ -70,8 +70,8 @@ def search():
 
 
 # SearchResultPage
-@app.route("/searchResult", methods=["GET", "POST"])
-def searchResult():
+@app.route("/searchresult", methods=["GET", "POST"])
+def searchresult():
     if request.method == "POST":
 
         # Collecting the form responses
@@ -83,7 +83,7 @@ def searchResult():
             data = pd.read_csv(DATA_PATH, usecols=['courseID', 'userID'])
             studentSearchResult = data[data['courseID'] == course]
             print(studentSearchResult)
-            return render_template("searchResult.html", ID=course, rec_list=studentSearchResult['userID'].to_list())
+            return render_template("searchresult.html", ID=course, rec_list=studentSearchResult['userID'].to_list())
 
         else:
 
@@ -100,7 +100,7 @@ def searchResult():
             courseSearchResult = data[data['userID'] == user]
             # searchResult = searchResult.columns.drop('userID')
             print(courseSearchResult)
-            return render_template("searchResult.html", ID=user, rec_list=courseSearchResult['courseID'].to_list())
+            return render_template("searchresult.html", ID=user, rec_list=courseSearchResult['courseID'].to_list())
 
     else:
         return "Sorry, there was an error in searchResult."
