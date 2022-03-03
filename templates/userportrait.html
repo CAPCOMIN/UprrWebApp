@@ -175,8 +175,6 @@
 
 <br><br><br>
 <div id="run">
-
-
     <h2 id="div1">Search Results Page</h2>
     <h3 id="div1">The features of courses taken by User {{ userID }} are as follows: </h3>
     <ol id="div2">
@@ -185,6 +183,21 @@
         {% endfor %}
     </ol>
 
+    <a href='/searchportrait' id="div1">
+        <button class="return">
+            Try another query
+        </button>
+    </a>
+</div>
+<br><br>
+<div id="run">
+    <h2 id="div1">User Characteristic Frequency</h2>
+    <h3 id="div1">The characteristic frequency of courses taken by User {{ userID }} are as follows: </h3>
+    <ol id="div2">
+        {% for i in freq_dict %}
+            <li>{{ i }} : {{ freq_dict[i] }}</li>
+        {% endfor %}
+    </ol>
     <a href='/searchportrait' id="div1">
         <button class="return">
             Try another query
@@ -200,4 +213,5 @@
 <div class="transbox">
     <img src="../static/images/user_img.jpg"/>
 </div>
+<br><br><br>
 </body>

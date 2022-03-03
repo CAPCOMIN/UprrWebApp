@@ -10,6 +10,7 @@ sys.path.append(PROJECT_PATH)
 # Importing required libraries
 from flask import Flask, render_template, request
 from Recommendation_Generator.generator import recommendationGenerator
+
 VERSION = "1.1.1 Beta"
 
 features, data = recommendationGenerator.load_data(recommendationGenerator, datapath=DATA_PATH)
@@ -132,6 +133,7 @@ def userportrait():
         userportrait = data[data['userID'] == user]
         # userportrait = userportrait.columns.drop('userID')
         print(userportrait)
+
         featureList = userportrait['courseFeature'].to_list()
 
         # 写入课程 features 以生成画像
@@ -143,10 +145,17 @@ def userportrait():
                 print(ci)
                 f.write(ci + "\n")
         f.close()
-        wc = userWordCould.WC()
-        wc.draw_wordcloud()
+        freq = {}
+        try:
+            wc = userWordCould.WC()
+            freq = wc.draw_wordcloud()
+        except ValueError:
+            print(ValueError)
+            return render_template("userportrait.html", userID=user, rec_list=["⚠", ValueError, "WordCould ValueError"],
+                                   freq_dict=["⚠", ValueError, "WordCould ValueError"])
+        # print(freq)
 
-        return render_template("userportrait.html", userID=user, rec_list=featureList)
+        return render_template("userportrait.html", userID=user, rec_list=featureList, freq_dict=freq)
 
     else:
         return "Sorry, there was an error in user portrait web app."

@@ -3,3 +3,5 @@ Input_Preprocessing/__pycache__/
 Recommendation_Generator/__pycache__/
 __pycache__/
 configs.py
+tmp/tmp_cossim_mat.txt
+tmp/tmp_recomm_indices.txt

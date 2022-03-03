@@ -28,7 +28,7 @@ class WC(object):
 
         for i in result:
             keywords[i[0]] = i[1]
-        print(keywords)
+        # print(keywords)
 
         d = path.dirname(__file__)  # 当前文件文件夹所在目录
         color_mask = imageio.imread("static/images/alice.png")  # 读取背景图片
@@ -62,6 +62,7 @@ class WC(object):
         # plt.imshow(word_cloud)
         # plt.axis('off')
         # plt.show()
+        return keywords
 
 
 if __name__ == '__main__':
