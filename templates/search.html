@@ -3,6 +3,8 @@
 	<head>
 		<title>Search page</title>
 		<link rel="stylesheet" type="text/css" href="static/style.css">
+		<link href="../static/img/icon.svg" rel="shortcut icon">
+		
 		<title>Recommendation System</title>
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -53,7 +55,7 @@
 							alpha = alpha + speed;
 							run.style.filter = 'alpha(opacity=' + alpha + ')';
 							run.style.opacity = alpha / 100;
-							document.title = alpha;
+							// document.title = alpha;
 						}
 					}, 75)
 				}
@@ -72,7 +74,7 @@
 							alphas = alphas + speeds;
 							runs.style.filter = 'alpha(opacity=' + alphas + ')';
 							runs.style.opacity = alphas / 100;
-							document.title = alphas;
+							// document.title = alphas;
 						}
 					}, 75)
 				}

@@ -3,6 +3,8 @@
 	<head>
 		<title>Search Portrait page</title>
 		<link rel="stylesheet" type="text/css" href="static/style.css">
+		<link href="../static/img/icon.svg" rel="shortcut icon">
+		
 		<title>Recommendation System</title>
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -39,7 +41,7 @@
 							alpha = alpha + speed;
 							run.style.filter = 'alpha(opacity=' + alpha + ')';
 							run.style.opacity = alpha / 100;
-							document.title = alpha;
+							// document.title = alpha;
 						}
 					}, 75)
 				}
@@ -100,6 +102,14 @@
 				left: 0;
 				z-index: 2;
 				position: fixed;
+			}
+			
+			#div7 {
+				font-family: "Times New Roman";
+				color: #00557f;
+				font-size: 20px;
+				text-align: left;
+				line-height: calc(30px);
 			}
 
 			#divbar {
@@ -207,13 +217,13 @@
 		</div>
 		<div id="box">
 			<p id="div2">
-				<a href="https://amueller.github.io/word_cloud/index.html">Offical Document</a><br>
-				1. Installation: <br>pip install wordcloud<br><br>
-				2. Construct the wordcloud class:<br>
-				from wordcloud import WordCloud <br>
-
+				<a href="https://amueller.github.io/word_cloud/index.html">Offical Document</a>
+			</p>
+			<p id="div7">1. Installation:</p>
+			<p id="div2">pip install wordcloud</p>
+			<p id="div7">2. Construct the wordcloud class:</p>
+			<p id="div2">from wordcloud import WordCloud <br>
 				wc = WordCloud(parameter)<br>
-
 				parameter <br>
 				font_path: Path to font file (OTF or TTF), string<br>
 
@@ -261,16 +271,17 @@
 				colormap: colormap, randomly assigns a color to each word, if color_func is specified, this parameter
 				is ignored, string or matplotlib colormap type, default is 'viridis'<br>
 
-				normalize_plurals: remove the 's' at the end of the word, boolean, the default is True<br><br>
-				Attributes:<br>
-				wc.words_<br>
+				normalize_plurals: remove the 's' at the end of the word, boolean, the default is True
+			<p id="div7">3. Attributes:</p>
+			<p id="div2">wc.words_<br>
 				Word example corresponding to frequency, dictionary type {string: float}<br>
 
 				wc.layout_<br>
 				Record the value, font size, position, orientation and color of each word, a list of tuples, each in
-				the format (string, int, (int, int), int, color)<br><br>
-				Method: <br>
-				wc.generate(text)<br>
+				the format (string, int, (int, int), int, color)</p>
+
+			<p id="div7">4. Method: </p>
+			<p id="div2" wc.generate(text)<br>
 				generate word cloud map from text<br>
 
 				wc.fit_words(frequencies)<br>
@@ -295,16 +306,19 @@
 
 				to_file(filename)<br>
 				Return word cloud map in image format<br>
-				filename: save path<br><br>
-				Generate a color function from the color of a given image: <br>
-				from wordcloud import ImageColorGenerator <br>
-				pic_color=ImageColorGenerator(pic) <br><br>
-				Generate random colors (default color generation): <br>
-				wc.random_color_func(word=None, font_size=None, position=None, orientation=None, font_path=None,
+				filename: save path </p>
+
+			<p id="div7">5. Generate a color function from the color of a given image: </p>
+			<p id="div2">from wordcloud import ImageColorGenerator <br>
+				pic_color=ImageColorGenerator(pic) </p>
+
+			<p id="div7">6. Generate random colors (default color generation): </p>
+			<p id="div2">wc.random_color_func(word=None, font_size=None, position=None, orientation=None,
+				font_path=None,
 				random_state=None) <br>
 				#random_state: If given a random object, the number that will be used as a random seed for it to
 				generate <br>
-
+			</p>
 			</p>
 
 
