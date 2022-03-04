@@ -1,217 +1,221 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Results page</title>
-    <link rel="stylesheet" type="text/css" href="static/style.css">
-	<link href="../static/img/icon.svg" rel="shortcut icon">
+	<head>
+		<title>Results page</title>
+		<link rel="stylesheet" type="text/css" href="static/style.css">
+		<link href="../static/img/icon.svg" rel="shortcut icon">
 
-    <title>Recommendation System</title>
+		<title>Recommendation System</title>
 
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js">
-    </script>
-    <script>
-        window.onload = function () {
-            var run = document.getElementById("run");
-            var btn = document.getElementById("btn");
-            var speed = 1;
-            var timer = null;
-            var alpha = 75;
-            run.onmouseover = function () {
-                startrun(90);
-            }
-            run.onmouseout = function () {
-                startrun(75);
-            }
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<link rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js">
+		</script>
+		<script>
+			window.onload = function() {
+				var run = document.getElementById("run");
+				var btn = document.getElementById("btn");
+				var speed = 1;
+				var timer = null;
+				var alpha = 75;
+				run.onmouseover = function() {
+					startrun(90);
+				}
+				run.onmouseout = function() {
+					startrun(75);
+				}
 
-            function startrun(target) {
-                clearInterval(timer);
-                timer = setInterval(function () {
-                    if (target > alpha) {
-                        speed = 3;
-                    } else {
-                        speed = -3;
-                    }
-                    if (alpha == target) {
-                        clearInterval(timer);
-                    } else {
-                        alpha = alpha + speed;
-                        run.style.filter = 'alpha(opacity=' + alpha + ')';
-                        run.style.opacity = alpha / 100;
-                        // document.title = alpha;
-                    }
-                }, 75)
-            }
-        }
-    </script>
+				function startrun(target) {
+					clearInterval(timer);
+					timer = setInterval(function() {
+						if (target > alpha) {
+							speed = 3;
+						} else {
+							speed = -3;
+						}
+						if (alpha == target) {
+							clearInterval(timer);
+						} else {
+							alpha = alpha + speed;
+							run.style.filter = 'alpha(opacity=' + alpha + ')';
+							run.style.opacity = alpha / 100;
+							// document.title = alpha;
+						}
+					}, 75)
+				}
+			}
+		</script>
 
-    <style>
-        .return {
-            background-color: rgb(190, 221, 149);
-            border: 2px solid black;
-            color: rgb(44, 57, 172);
-            padding: 5px 10px;
-            text-align: center;
-            display: inline-block;
-            font-size: 20px;
-            margin: 10px 30px;
-            cursor: pointer;
-        }
+		<style>
+			.return {
+				background-color: rgb(190, 221, 149);
+				border: 2px solid black;
+				color: rgb(44, 57, 172);
+				padding: 5px 10px;
+				text-align: center;
+				display: inline-block;
+				font-size: 20px;
+				margin: 10px 30px;
+				cursor: pointer;
+			}
 
-        body {
+			body {
 
-            background-image: url(../static/img/4.png);
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            text-align: center;
-            background-size: cover;
-        }
+				background-image: url(../static/img/4.png);
+				background-repeat: no-repeat;
+				background-attachment: fixed;
+				text-align: center;
+				background-size: cover;
+			}
 
-        #div1 {
-            font-family: "Times New Roman";
-        }
+			#div1 {
+				font-family: "Times New Roman";
+			}
 
-        #div2 {
-            font-family: "Times New Roman";
-            font-size: 18px;
-        }
+			#div2 {
+				font-family: "Times New Roman";
+				font-size: 18px;
+			}
 
-        #div3 {
-            font-family: "Times New Roman";
-            color: beige;
-        }
+			#div3 {
+				font-family: "Times New Roman";
+				color: beige;
+			}
 
-        #div5 {
-            font-family: "Titillium Web Bold";
-            font-weight: bold;
-            color: beige;
-        }
-		
-		#div6 {
-		    opacity: 0.8;
-			width: 100%;
-			height: auto;
-			top: 0;
-			left: 0;
-			z-index: 2;
-			position: fixed;
-		}
-		
-        #divbar {
-            font-family: "Titillium Web";
-            color: beige;
-        }
+			#div5 {
+				font-family: "Titillium Web Bold";
+				font-weight: bold;
+				color: beige;
+			}
 
-        #run {
-            width: 1000px;
-            margin: 0 auto;
-            background-color: #ffffff;
+			#div6 {
+				opacity: 0.8;
+				width: 100%;
+				height: auto;
+				top: 0;
+				left: 0;
+				z-index: 2;
+				position: fixed;
+			}
 
-            border: 1px solid black;
-            font-weight: bold;
-            border-radius: calc(1.25rem);
+			#divbar {
+				font-family: "Titillium Web";
+				color: beige;
+			}
 
-            opacity: 0.75;
-            filter: alpha(opacity=75);
-        }
+			#run {
+				width: 1000px;
+				margin: 0 auto;
+				background-color: #ffffff;
 
-        .transbox img {
-            width: 66%;
-            height: 66%;
-            margin: 0 auto;
-            border: 1px solid black;
-            opacity: 0.9;
-            filter: alpha(opacity=90);
-            /* IE8 及更早版本 */
-            font-weight: bold;
-            border-radius: calc(1.25rem);
-        }
+				border: 1px solid black;
+				font-weight: bold;
+				border-radius: calc(1.25rem);
 
-    </style>
+				opacity: 0.75;
+				filter: alpha(opacity=75);
 
-</head>
-<body>
-<nav class="navbar navbar-inverse" id="div6">
-    <div class="container-fluid" id="div1">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/" id="div5">UPRR Web App</a>
-        </div>
-        <!-- <ul class="nav navbar-nav" id="div1">
+				word-wrap: break-word;
+				/* word-break: keep-all; */
+				overflow: hidden;
+				
+			}
+
+			.transbox img {
+				width: 66%;
+				height: 66%;
+				margin: 0 auto;
+				border: 1px solid black;
+				opacity: 0.9;
+				filter: alpha(opacity=90);
+				/* IE8 及更早版本 */
+				font-weight: bold;
+				border-radius: calc(1.25rem);
+			}
+		</style>
+
+	</head>
+	<body>
+		<nav class="navbar navbar-inverse" id="div6">
+			<div class="container-fluid" id="div1">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="/" id="div5">UPRR Web App</a>
+				</div>
+				<!-- <ul class="nav navbar-nav" id="div1">
             <li class="active"><a href="/">Home</a></li>
         </ul> -->
-        <div id="">
-            <a class="navbar-brand"> </a>
-        </div>
-        <div class="navbar-header" id="divbar">
-            <a class="navbar-brand" href="/">Home</a>
-        </div>
+				<div id="">
+					<a class="navbar-brand"> </a>
+				</div>
+				<div class="navbar-header" id="divbar">
+					<a class="navbar-brand" href="/">Home</a>
+				</div>
 
-        <div class="navbar-header" id="divbar">
-            <a class="navbar-brand" href="/search">Search</a>
-        </div>
+				<div class="navbar-header" id="divbar">
+					<a class="navbar-brand" href="/search">Search</a>
+				</div>
 
-        <div class="navbar-header" id="divbar">
-            <a class="navbar-brand" href="/searchportrait">User Portrait</a>
-        </div>
+				<div class="navbar-header" id="divbar">
+					<a class="navbar-brand" href="/searchportrait">User Portrait</a>
+				</div>
 
-        <div class="nav navbar-nav navbar-right" id="div1">
-            <!-- <a href="http://localhost:3000/" class="btn btn-info" style="margin-top: 5px;" target="_blank">Chat for Assistance</a> -->
-            <a href="https://youdi1012.github.io/" class="btn btn-info" style="margin-top: 5px;"
-               target="_blank">LLD Blog</a>
+				<div class="nav navbar-nav navbar-right" id="div1">
+					<!-- <a href="http://localhost:3000/" class="btn btn-info" style="margin-top: 5px;" target="_blank">Chat for Assistance</a> -->
+					<a href="https://youdi1012.github.io/" class="btn btn-info" style="margin-top: 5px;"
+						target="_blank">LLD Blog</a>
 
-            <a href="https://zxy.link/" class="btn btn-info" style="margin-top: 5px;" target="_blank">ZXY
-                Blog</a>
+					<a href="https://zxy.link/" class="btn btn-info" style="margin-top: 5px;" target="_blank">ZXY
+						Blog</a>
 
-            <a href="https://konn-submarine-bu.github.io/" class="btn btn-info" style="margin-top: 5px;"
-               target="_blank">LY
-                Blog</a>
-        </div>
-    </div>
-</nav>
+					<a href="https://konn-submarine-bu.github.io/" class="btn btn-info" style="margin-top: 5px;"
+						target="_blank">LY
+						Blog</a>
+				</div>
+			</div>
+		</nav>
 
-<br><br><br>
-<div id="run">
-    <h2 id="div1">Search Results Page</h2>
-    <h3 id="div1">The features of courses taken by User {{ userID }} are as follows: </h3>
-    <ol id="div2">
-        {% for rec in rec_list %}
-            <li>{{ rec }}</li>
-        {% endfor %}
-    </ol>
+		<br><br><br>
+		<div id="run">
+			<h2 id="div1">Search Results Page</h2>
+			<h3 id="div1">The features of courses taken by User {{ userID }} are as follows: </h3>
+			<ol id="div2">
+				{% for rec in rec_list %}
+				<li>{{ rec }}</li>
+				{% endfor %}
+			</ol>
 
-    <a href='/searchportrait' id="div1">
-        <button class="return">
-            Try another query
-        </button>
-    </a>
-</div>
-<br><br>
-<div id="run">
-    <h2 id="div1">User Characteristic Frequency</h2>
-    <h3 id="div1">The characteristic frequency of courses taken by User {{ userID }} are as follows: </h3>
-    <ol id="div2">
-        {% for i in freq_dict %}
-            <li>{{ i }} : {{ freq_dict[i] }}</li>
-        {% endfor %}
-    </ol>
-    <a href='/searchportrait' id="div1">
-        <button class="return">
-            Try another query
-        </button>
-    </a>
-</div>
-<div>
-    <h2 id="div3">User Portrait</h2>
-</div>
-<script>
-    $randNum = Math.random();
-</script>
-<div class="transbox">
-    <img src="../static/images/user_img.jpg"/>
-</div>
-<br><br><br>
-</body>
+			<a href='/searchportrait' id="div1">
+				<button class="return">
+					Try another query
+				</button>
+			</a>
+		</div>
+		<br><br>
+		<div id="run">
+			<h2 id="div1">User Characteristic Frequency</h2>
+			<h3 id="div1">The characteristic frequency of courses taken by User {{ userID }} are as follows: </h3>
+			<ol id="div2">
+				{% for i in freq_dict %}
+				<li>{{ i }} : {{ freq_dict[i] }}</li>
+				{% endfor %}
+			</ol>
+			<a href='/searchportrait' id="div1">
+				<button class="return">
+					Try another query
+				</button>
+			</a>
+		</div>
+		<div>
+			<h2 id="div3">User Portrait</h2>
+		</div>
+		<script>
+			$randNum = Math.random();
+		</script>
+		<div class="transbox">
+			<img src="../static/images/user_img.jpg" />
+		</div>
+		<br><br><br>
+	</body>
