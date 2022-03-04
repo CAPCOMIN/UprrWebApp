@@ -1,8 +1,8 @@
-literature
-foreign
-history
-culture
-the_renaissance
-classicism
-romanticism
-realism
+solid_mechanics
+materials
+mathematical
+structural_engineering
+civil_engineering
+transportation_engineering
+bioengineering
+statics
