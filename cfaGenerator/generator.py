@@ -5,13 +5,13 @@ from configs import PROJECT_PATH
 sys.path.append(PROJECT_PATH)
 # Importing required libraries
 import pandas as pd
-from Input_Preprocessing import utils
+from PreProcessing import utils
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 
 
 # Defining the main class
-class recommendationGenerator:
+class RecommendationGenerator:
     # Attributes 属性
     userID = 0
     N = 0
@@ -51,6 +51,7 @@ class recommendationGenerator:
                                                                'stop_video']))
         features = features.apply(pd.to_numeric, errors='coerce')
         features = features.fillna(0)
+        # print(features)
 
         # Loading courseID and userID data and converting userID from type object to numeric
         # 加载 courseID 和 userID 数据并将 userID 从类型对象转换为数字

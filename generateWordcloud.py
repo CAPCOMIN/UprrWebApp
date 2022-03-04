@@ -9,7 +9,7 @@ import imageio
 from os import path
 
 
-# import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 
 class WC(object):
 
@@ -59,9 +59,11 @@ class WC(object):
         word_cloud.to_file("static/images/user_img.jpg")  # 保存图片
         print("success")
         #  显示词云图片
-        # plt.imshow(word_cloud)
-        # plt.axis('off')
-        # plt.show()
+        if __name__ == '__main__':
+            plt.imshow(word_cloud)
+            plt.axis('off')
+            plt.show()
+
         return keywords
 
 

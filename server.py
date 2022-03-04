@@ -1,19 +1,20 @@
+# -*- coding: UTF-8 -*-
 # Setting path variables
 import sys
 import pandas as pd
 from configs import *
-import userWordCould
-from Input_Preprocessing import utils
+import generateWordcloud
+from PreProcessing import utils
 
 sys.path.append(PROJECT_PATH)
 
 # Importing required libraries
 from flask import Flask, render_template, request
-from Recommendation_Generator.generator import recommendationGenerator
+from cfaGenerator.generator import RecommendationGenerator
 
-VERSION = "1.2.0 Beta"
+VERSION = "2.0.0 Release 22031"
 
-features, data = recommendationGenerator.load_data(recommendationGenerator, datapath=DATA_PATH)
+features, data = RecommendationGenerator.load_data(RecommendationGenerator, datapath=DATA_PATH)
 users = data['userID'].unique()
 
 app = Flask(__name__)
@@ -42,7 +43,7 @@ def result():
         userID = int(users[user])
 
         # Running the model, generating recommendations and passing the list to the HTML page
-        model = recommendationGenerator(userID, N)
+        model = RecommendationGenerator(userID, N)
         recomm = model.generate_recommendations(features, data)
 
         fcm = open("tmp/tmp_cossim_mat.txt", "r")
@@ -147,7 +148,7 @@ def userportrait():
         f.close()
         freq = {}
         try:
-            wc = userWordCould.WC()
+            wc = generateWordcloud.WC()
             freq = wc.draw_wordcloud()
         except ValueError:
             print(ValueError)

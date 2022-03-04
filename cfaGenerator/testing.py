@@ -8,7 +8,7 @@ DATA_PATH = "E:\\大创推荐算法\\Courses-Recommendation-system-master\\data\
 
 sys.path.append(PROJECT_PATH)
 
-from generator import recommendationGenerator
+from generator import RecommendationGenerator
 import pandas as pd
 import numpy as np
 
@@ -33,7 +33,7 @@ N = int(input())
 print("\n\n")
 print("Now lets see the recommendations you have based on your study patterns")
 
-model = recommendationGenerator(userID, N)
+model = RecommendationGenerator(userID, N)
 
 features, data = model.load_data(datapath='data/final.csv')
 

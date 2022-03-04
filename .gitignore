@@ -1,6 +1,6 @@
 .vscode/
-Input_Preprocessing/__pycache__/
-Recommendation_Generator/__pycache__/
+PreProcessing/__pycache__/
+cfaGenerator/__pycache__/
 __pycache__/
 configs.py
 tmp/tmp_cossim_mat.txt
