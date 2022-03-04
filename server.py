@@ -11,7 +11,7 @@ sys.path.append(PROJECT_PATH)
 from flask import Flask, render_template, request
 from Recommendation_Generator.generator import recommendationGenerator
 
-VERSION = "1.1.2 Beta"
+VERSION = "1.2.0 Beta"
 
 features, data = recommendationGenerator.load_data(recommendationGenerator, datapath=DATA_PATH)
 users = data['userID'].unique()
@@ -22,7 +22,7 @@ app = Flask(__name__)
 # HomePage
 @app.route("/")
 def home():
-    return render_template("index.html", version=VERSION, max=users.shape[0] - 1)
+    return render_template("index.html", version=VERSION, max=users.shape[0])
 
 
 # ResultPage
@@ -56,7 +56,7 @@ def result():
         lri = sri.split('\n')
         fri.close()
 
-        return render_template("result.html", userID=userID, rec_list=recomm, cm_list=lcm, ri_list=lri)
+        return render_template("result.html", userID=userID - 1, rec_list=recomm, cm_list=lcm, ri_list=lri)
 
     else:
 
@@ -66,7 +66,7 @@ def result():
 # SearchPage
 @app.route("/search")
 def search():
-    return render_template("search.html", max=users.shape[0] - 1)
+    return render_template("search.html", max=users.shape[0])
 
 
 # SearchResultPage
@@ -109,7 +109,7 @@ def searchresult():
 # SearchPortraitPage
 @app.route("/searchportrait")
 def searchportrait():
-    return render_template("/searchportrait.html", max=users.shape[0] - 1)
+    return render_template("/searchportrait.html", max=users.shape[0])
 
 
 # UserPortraitPage

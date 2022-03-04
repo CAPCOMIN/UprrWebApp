@@ -201,45 +201,46 @@
 					<a href="https://youdi1012.github.io/" class="btn btn-info" style="margin-top: 5px;"
 						target="_blank">LLD Blog</a>
 
-					<a href="https://zxy.link/" class="btn btn-info" style="margin-top: 5px;" target="_blank">ZXY
-						Blog</a>
+                    <a href="https://zxy.link/" class="btn btn-info" style="margin-top: 5px;" target="_blank">ZXY
+                        Blog</a>
 
-					<a href="https://konn-submarine-bu.github.io/" class="btn btn-info" style="margin-top: 5px;"
-						target="_blank">LY
-						Blog</a>
-				</div>
-			</div>
-		</nav>
-		<br><br><br>
-		<div>
-			<h1 id="div1">Generate User Portrait based on students' courses: </h1>
-		</div>
+                    <a href="https://konn-submarine-bu.github.io/" class="btn btn-info" style="margin-top: 5px;"
+                       target="_blank">LY
+                        Blog</a>
+                </div>
+            </div>
+        </nav>
+        <br><br><br><br>
+        <div>
+            <h1 id="div1">Generate User Portrait based on students' courses: </h1>
+        </div>
 
 
-		<form method="post" action="/userportrait" id="run">
-			<fieldset>
-				<legend id="div4">Input the User ID</legend>
-				<p id="div3">
-					<label>Insert the USER ID of one student to get the User Portrait </label>
-					<input type="number" name="index" value="22692" min="0" max="7320653" required>
-				</p>
-				<p>
-					<!-- <button id="btn" type="submit" class="btn btn-primary">Submit</button> -->
-					<input type="submit" name="submit" class="btn btn-primary" value="Submit"  id="div8"/>
-					<!-- <input id="btn" type="submit" name="submit" class="btn btn-primary" value="Submit"/>-->
-				</p>
-			</fieldset>
-		</form>
-		<div>
-			<h1 id="div1">WordCloud Introduce: </h1>
-		</div>
-		<div id="box">
-			<p id="div2">
-				<a href="https://amueller.github.io/word_cloud/index.html">Offical Document</a>
-			</p>
-			<p id="div7">1. Installation:</p>
-			<p id="div2">pip install wordcloud</p>
-			<p id="div7">2. Construct the wordcloud class:</p>
+        <form method="post" action="/userportrait" id="run">
+            <fieldset>
+                <legend id="div4">Input the User ID</legend>
+                <p id="div3">
+                    <label>Insert the USER ID of one student to get the User Portrait </label>
+                    <input type="number" name="index" value="100" min="1" max="39021" required>
+                </p>
+                <p>
+                    <!-- <button id="btn" type="submit" class="btn btn-primary">Submit</button> -->
+                    <input type="submit" name="submit" class="btn btn-primary" value="Submit" id="div8"/>
+                    <!-- <input id="btn" type="submit" name="submit" class="btn btn-primary" value="Submit"/>-->
+                </p>
+            </fieldset>
+        </form>
+        <br><br><br>
+        <div>
+            <h1 id="div1">WordCloud Introduce: </h1>
+        </div>
+        <div id="box">
+            <p id="div2">
+                <a href="https://amueller.github.io/word_cloud/index.html">Offical Document</a>
+            </p>
+            <p id="div7">1. Installation:</p>
+            <p id="div2">pip install wordcloud</p>
+            <p id="div7">2. Construct the wordcloud class:</p>
 			<p id="div2">from wordcloud import WordCloud <br>
 				wc = WordCloud(parameter)<br>
 				parameter <br>
@@ -326,16 +327,16 @@
 				Return word cloud map in image format<br>
 				filename: save path </p>
 
-			<p id="div7">5. Generate a color function from the color of a given image: </p>
-			<p id="div2">from wordcloud import ImageColorGenerator <br>
-				pic_color=ImageColorGenerator(pic) </p>
+            <p id="div7">5. Generate a color function from the color of a given image: </p>
+            <p id="div2">from wordcloud import ImageColorGenerator <br>
+                pic_color=ImageColorGenerator(pic) </p>
 
-			<p id="div7">6. Generate random colors (default color generation): </p>
-			<p id="div2">wc.random_color_func(word=None, font_size=None, position=None, orientation=None,
-				font_path=None,
-				random_state=None) <br>
+            <p id="div7">6. Generate random colors (default color generation): </p>
+            <p id="div2">wc.random_color_func(word=None, font_size=None, position=None, orientation=None,
+                font_path=None,
+                random_state=None) <br>
                 #random_state: If given a random object, the number that will be used as a random seed for it to
-                generate <br>
+                generate. <br><br>
             </p>
             </p>
 
@@ -346,6 +347,6 @@
     </body>
     <br><br><br>
     <p id="div66">
-        UPRR Web App Preview (Pre-release)
+        UPRR Web App Preview
     </p>
     <br>

@@ -1,449 +1,369 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Search page</title>
-		<link rel="stylesheet" type="text/css" href="static/style.css">
-		<link href="../static/img/icon.svg" rel="shortcut icon">
-		
-		<title>Recommendation System</title>
-		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-		<link rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js">
-		</script>
-		<script>
-			window.onload = function() {
-				var run = document.getElementById("run");
-				var runs = document.getElementById("runs");
+<head>
+    <title>Search page</title>
+    <link rel="stylesheet" type="text/css" href="static/style.css">
+    <link href="../static/img/icon.svg" rel="shortcut icon">
 
-				var btn = document.getElementById("btn");
-				var speed = 1;
-				var timer = null;
-				var alpha = 75;
+    <title>Recommendation System</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js">
+    </script>
+    <script>
+        window.onload = function () {
+            var run = document.getElementById("run");
+            var runs = document.getElementById("runs");
 
-				var timers = null;
-				var speeds = 1;
-				var alphas = 75;
+            var btn = document.getElementById("btn");
+            var speed = 1;
+            var timer = null;
+            var alpha = 75;
 
-				run.onmouseover = function() {
-					startrun(90);
-				}
-				run.onmouseout = function() {
-					startrun(75);
-				}
+            var timers = null;
+            var speeds = 1;
+            var alphas = 75;
 
-				runs.onmouseover = function() {
-					startruns(90);
-				}
-				runs.onmouseout = function() {
-					startruns(75);
-				}
-
-				function startrun(target) {
-					clearInterval(timer);
-					timer = setInterval(function() {
-						if (target > alpha) {
-							speed = 3;
-						} else {
-							speed = -3;
-						}
-						if (alpha == target) {
-							clearInterval(timer);
-						} else {
-							alpha = alpha + speed;
-							run.style.filter = 'alpha(opacity=' + alpha + ')';
-							run.style.opacity = alpha / 100;
-							// document.title = alpha;
-						}
-					}, 75)
-				}
-
-				function startruns(targets) {
-					clearInterval(timers);
-					timers = setInterval(function() {
-						if (targets > alphas) {
-							speeds = 3;
-						} else {
-							speeds = -3;
-						}
-						if (alphas == targets) {
-							clearInterval(timers);
-						} else {
-							alphas = alphas + speeds;
-							runs.style.filter = 'alpha(opacity=' + alphas + ')';
-							runs.style.opacity = alphas / 100;
-							// document.title = alphas;
-						}
-					}, 75)
-				}
-			}
-		</script>
-
-
-		<style>
-			.return {
-				background-color: rgb(190, 221, 149);
-				border: 2px solid black;
-				color: rgb(44, 57, 172);
-				padding: 5px 10px;
-				text-align: center;
-				display: inline-block;
-				font-size: 20px;
-				margin: 10px 30px;
-				cursor: pointer;
-			}
-
-			body {
-
-				background-image: url(../static/img/4.png);
-				background-repeat: no-repeat;
-				background-attachment: fixed;
-				text-align: center;
-				background-size: cover;
-			}
-
-			#div1 {
-				font-family: "Times New Roman";
-				color: beige;
-			}
-			
-			#div2 {
-                font-family: "Times New Roman";
-                /* color: beige; */
-                font-size: 20px;
-                text-align: left;
+            run.onmouseover = function () {
+                startrun(90);
+            }
+            run.onmouseout = function () {
+                startrun(75);
             }
 
-            #div3 {
-                font-family: "Times New Roman";
-                /* color: beige; */
-				font-size: 19px;
+            runs.onmouseover = function () {
+                startruns(90);
             }
-			
-			#div4 {
-				font-family: "Titillium Web";
-				/* color: slategray; */
-				font-size: 20px;
-				line-height: calc(45px);
-			}
-			
-            #divbar {
-                font-family: "Titillium Web";
-                color: beige;
+            runs.onmouseout = function () {
+                startruns(75);
             }
 
-            #div5 {
-                font-family: "Titillium Web Bold";
-                font-weight: bold;
-                color: beige;
+            function startrun(target) {
+                clearInterval(timer);
+                timer = setInterval(function () {
+                    if (target > alpha) {
+                        speed = 3;
+                    } else {
+                        speed = -3;
+                    }
+                    if (alpha == target) {
+                        clearInterval(timer);
+                    } else {
+                        alpha = alpha + speed;
+                        run.style.filter = 'alpha(opacity=' + alpha + ')';
+                        run.style.opacity = alpha / 100;
+                        // document.title = alpha;
+                    }
+                }, 75)
             }
 
-            #div6 {
-                opacity: 0.8;
-                width: 100%;
-                height: auto;
-                top: 0;
-                left: 0;
-                z-index: 2;
-                position: fixed;
+            function startruns(targets) {
+                clearInterval(timers);
+                timers = setInterval(function () {
+                    if (targets > alphas) {
+                        speeds = 3;
+                    } else {
+                        speeds = -3;
+                    }
+                    if (alphas == targets) {
+                        clearInterval(timers);
+                    } else {
+                        alphas = alphas + speeds;
+                        runs.style.filter = 'alpha(opacity=' + alphas + ')';
+                        runs.style.opacity = alphas / 100;
+                        // document.title = alphas;
+                    }
+                }, 75)
             }
+        }
+    </script>
 
-            #div66 {
-                font-family: "Consolas";
-                font-size: 15px;
-                color: lightgray;
-                font-weight: bold;
-            }
 
-            #div7 {
-                margin-top: calc(6px);
-            }
+    <style>
+        .return {
+            background-color: rgb(190, 221, 149);
+            border: 2px solid black;
+            color: rgb(44, 57, 172);
+            padding: 5px 10px;
+            text-align: center;
+            display: inline-block;
+            font-size: 20px;
+            margin: 10px 30px;
+            cursor: pointer;
+        }
 
-            #run {
-                width: 1000px;
-                height: inherit;
-                margin: 0 auto;
-                background-color: #ffffff;
-                /* background: #06c; */
+        body {
 
-                border: 1px solid black;
-                /* border: 1px solid #000; */
-				font-weight: bold;
-				border-radius: calc(1.25rem);
+            background-image: url(../static/img/4.png);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            text-align: center;
+            background-size: cover;
+        }
 
-				opacity: 0.75;
-				filter: alpha(opacity=75);
-				padding-top: calc(5px);
-				padding-bottom: calc(5px);
-			}
+        #div1 {
+            font-family: "Times New Roman";
+            color: beige;
+        }
 
-			#runs {
-				width: 1000px;
-				height: inherit;
-				margin: 0 auto;
-				background-color: #ffffff;
-				/* background: #06c; */
+        #div2 {
+            font-family: "Times New Roman";
+            /* color: beige; */
+            font-size: 20px;
+            text-align: left;
+        }
 
-				border: 1px solid black;
-				/* border: 1px solid #000; */
-				font-weight: bold;
-				border-radius: calc(1.25rem);
+        #div3 {
+            font-family: "Times New Roman";
+            /* color: beige; */
+            font-size: 19px;
+        }
 
-				opacity: 0.75;
-                filter: alpha(opacity=75);
-				padding-top: calc(5px);
-				padding-bottom: calc(5px);
-            }
-			
-			#box{
-				width: 1000px;
-				margin: 0 auto;
-				background-color: #ffffff;
-				
-				border: 2px solid gray;
-				font-weight: bold;
-				border-radius: calc(2.2rem);
-				
-				opacity: 0.75;
-				padding-right: calc(30px);
-				padding-left: calc(30px);
-				padding-top: calc(20px);
-			}
-        </style>
+        #div4 {
+            font-family: "Titillium Web";
+            /* color: slategray; */
+            font-size: 20px;
+            line-height: calc(45px);
+        }
 
-    </head>
-    <body>
+        #divbar {
+            font-family: "Titillium Web";
+            color: beige;
+        }
 
-    <nav class="navbar navbar-inverse" id="div6">
-        <div class="container-fluid" id="div1">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="/" id="div5">UPRR Web App</a>
-            </div>
-            <!-- <ul class="nav navbar-nav" id="div1">
+        #div5 {
+            font-family: "Titillium Web Bold";
+            font-weight: bold;
+            color: beige;
+        }
+
+        #div6 {
+            opacity: 0.8;
+            width: 100%;
+            height: auto;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            position: fixed;
+        }
+
+        #div66 {
+            font-family: "Consolas";
+            font-size: 15px;
+            color: lightgray;
+            font-weight: bold;
+        }
+
+        #div7 {
+            margin-top: calc(6px);
+        }
+
+        #run {
+            width: 1000px;
+            height: inherit;
+            margin: 0 auto;
+            background-color: #ffffff;
+            /* background: #06c; */
+
+            border: 1px solid black;
+            /* border: 1px solid #000; */
+            font-weight: bold;
+            border-radius: calc(1.25rem);
+
+            opacity: 0.75;
+            filter: alpha(opacity=75);
+            padding-top: calc(5px);
+            padding-bottom: calc(5px);
+        }
+
+        #runs {
+            width: 1000px;
+            height: inherit;
+            margin: 0 auto;
+            background-color: #ffffff;
+            /* background: #06c; */
+
+            border: 1px solid black;
+            /* border: 1px solid #000; */
+            font-weight: bold;
+            border-radius: calc(1.25rem);
+
+            opacity: 0.75;
+            filter: alpha(opacity=75);
+            padding-top: calc(5px);
+            padding-bottom: calc(5px);
+        }
+
+        #box {
+            width: 1000px;
+            margin: 0 auto;
+            background-color: #ffffff;
+
+            border: 2px solid gray;
+            font-weight: bold;
+            border-radius: calc(2.2rem);
+
+            opacity: 0.75;
+            padding-right: calc(30px);
+            padding-left: calc(30px);
+            padding-top: calc(20px);
+        }
+    </style>
+
+</head>
+<body>
+
+<nav class="navbar navbar-inverse" id="div6">
+    <div class="container-fluid" id="div1">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/" id="div5">UPRR Web App</a>
+        </div>
+        <!-- <ul class="nav navbar-nav" id="div1">
 <li class="active"><a href="/">Home</a></li>
 </ul> -->
-            <div id="">
-                <a class="navbar-brand"> </a>
-            </div>
-            <div class="navbar-header" id="divbar">
-                <a class="navbar-brand" href="/">Home</a>
-            </div>
+        <div id="">
+            <a class="navbar-brand"> </a>
+        </div>
+        <div class="navbar-header" id="divbar">
+            <a class="navbar-brand" href="/">Home</a>
+        </div>
 
-            <div class="navbar-header" id="divbar">
-                <a class="navbar-brand" href="/search">Search</a>
-            </div>
+        <div class="navbar-header" id="divbar">
+            <a class="navbar-brand" href="/search">Search</a>
+        </div>
 
-            <div class="navbar-header" id="divbar">
-                <a class="navbar-brand" href="/searchportrait">User Portrait</a>
-            </div>
+        <div class="navbar-header" id="divbar">
+            <a class="navbar-brand" href="/searchportrait">User Portrait</a>
+        </div>
 
-            <div class="nav navbar-nav navbar-right" id="div1">
-                <!-- <a href="http://localhost:3000/" class="btn btn-info" style="margin-top: 5px;" target="_blank">Chat for Assistance</a> -->
-                <a href="https://youdi1012.github.io/" class="btn btn-info" style="margin-top: 5px;"
-                   target="_blank">LLD Blog</a>
+        <div class="nav navbar-nav navbar-right" id="div1">
+            <!-- <a href="http://localhost:3000/" class="btn btn-info" style="margin-top: 5px;" target="_blank">Chat for Assistance</a> -->
+            <a href="https://youdi1012.github.io/" class="btn btn-info" style="margin-top: 5px;"
+               target="_blank">LLD Blog</a>
 
-                <a href="https://zxy.link/" class="btn btn-info" style="margin-top: 5px;" target="_blank">ZXY
-                    Blog</a>
+            <a href="https://zxy.link/" class="btn btn-info" style="margin-top: 5px;" target="_blank">ZXY
+                Blog</a>
 
-					<a href="https://konn-submarine-bu.github.io/" class="btn btn-info" style="margin-top: 5px;"
-						target="_blank">LY
-						Blog</a>
-				</div>
-			</div>
-		</nav>
-		<br><br><br>
-		<h2 id="div1">
-			Export the selected courses based on the entered student ID:
-		</h2>
+            <a href="https://konn-submarine-bu.github.io/" class="btn btn-info" style="margin-top: 5px;"
+               target="_blank">LY
+                Blog</a>
+        </div>
+    </div>
+</nav>
+<br><br><br>
+<h2 id="div1">
+    Export the selected courses based on the entered student ID:
+</h2>
 
-		<form method="post" action="/searchresult" id="run">
-			<fieldset>
-				<legend id="div4">Search courses for each student</legend>
-				<p id="div3">
-					<label>Insert an index between 0 to {{ max }} to choose a USER ID</label>
-					<input type="number" name="index" value="22692" min="0" max="7320653" required>
-				</p>
-				<p>
-				
-					<input type="submit" name="submit" class="btn btn-primary" value="Submit" id="div7" />
-				</p>
-			</fieldset>
-		</form>
+<form method="post" action="/searchresult" id="run">
+    <fieldset>
+        <legend id="div4">Search courses for each student</legend>
+        <p id="div3">
+            <label>Insert an index between 0 to {{ max }} to choose a USER ID</label>
+            <input type="number" name="index" value="100" min="0" max="7320653" required>
+        </p>
+        <p>
+
+            <input type="submit" name="submit" class="btn btn-primary" value="Submit" id="div7"/>
+        </p>
+    </fieldset>
+</form>
 
 
-		<br>
-		<br>
-		<br>
-		
-		<h2 id="div1">
-			Export student IDs based on entered courses: 
-		</h2>
-		
-		<form method="post" action="/searchresult" id="runs">
-			<fieldset>
-				<legend id="div4">Search students for each course</legend>
-				<p id="div3">
-					<label>Please select a course (144 in total):</label>
-					<!--<input type="number" name="index" value="Integer here" min="0" max="7320653" required>-->
-					<select class="form-control" name="manufacturer" id="div3">
-						<option selected="selected">choose a course</option>
-						<option>AdelaideX/humbio101x/_</option>
-						<option>RiceX/BIOC372_2x/_</option>
-						<option>TsinghuaX/00720091X/_</option>
-						<option>TsinghuaX/01030132X_2015X/2015_T2</option>
-						<option>TsinghuaX/10421084X/_B_1_</option>
-						<option>TsinghuaX/10421084_2015WV/2015_winter_vacation</option>
-						<option>TsinghuaX/10421084_2015X/2015_T1</option>
-						<option>TsinghuaX/10430484X/_1_</option>
-						<option>TsinghuaX/10430494_2015X/2015_T1</option>
-						<option>TsinghuaX/10610224X/2015_T2</option>
-						<option>TsinghuaX/10800032X/_</option>
-						<option>TsinghuaX/20250103X/2015_T2</option>
-						<option>TsinghuaX/20330334X/_</option>
-						<option>TsinghuaX/20740042X/2015_T2</option>
-						<option>TsinghuaX/30640014X/2014_T2</option>
-						<option>TsinghuaX/60240013_2015X/2015_T1</option>
-						<option>TsinghuaX/70120073X/_</option>
-						<option>TsinghuaX/80511503X/2015_T2</option>
-						<option>TsinghuaX/THUSEM005/_</option>
-						<option>TsinghuaX/THUSEM007/_</option>
-						<option>UC_BerkeleyX/CS169_1x_1/2014_T1</option>
-						<option>UC_BerkeleyX/ColWri2_1x_2015_T1/2015_T1</option>
-						<option>UC_BerkeleyX/ColWri2_3x/2014_T2</option>
-						<option>course-v1:ACCA+FA1-MA1_X+2016_T2</option>
-						<option>course-v1:ACCA+FA2_X+sp</option>
-						<option>course-v1:CAU+08110140_1x+sp</option>
-						<option>course-v1:CHD+24123150+_</option>
-						<option>course-v1:CYCU+cycusheji+2017_T1</option>
-						<option>course-v1:CYCU+cycusheji+2017_T2</option>
-						<option>course-v1:ChongqingUX+CHEM10000X+sp</option>
-						<option>course-v1:ChongqingUX+MGMT31701X+sp</option>
-						<option>course-v1:ECNUx+BIOL0031112013+2015_T2</option>
-						<option>course-v1:HIT+13SC20301820+sp</option>
-						<option>course-v1:HIT+GH47100100+2016_T1</option>
-						<option>course-v1:HIT+GH47100100+2016_T2</option>
-						<option>course-v1:HIT+GH47100100+2017_T1</option>
-						<option>course-v1:HIT+GH47100100+2017_T2</option>
-						<option>course-v1:HIT+GO90801500+2016-T2</option>
-						<option>course-v1:HIT+GO90801500+2016_TS</option>
-						<option>course-v1:HUBU+20170227X+2017_T2</option>
-						<option>course-v1:JLUx+0000045603+sp</option>
-						<option>course-v1:JLUx+gx01640603_103138_1_tv+2015_T1</option>
-						<option>course-v1:MIT+15_390_2x+_</option>
-						<option>course-v1:MITx+6_00_1x+2015_T1</option>
-						<option>course-v1:MITx+6_00_1x+2015_T2</option>
-						<option>course-v1:NBCCx+NBCC000502+_sp</option>
-						<option>course-v1:NCTU+wym+2016_T2</option>
-						<option>course-v1:NPUX+2016001+sp</option>
-						<option>course-v1:NTHU+MOOC_00_006+sp</option>
-						<option>course-v1:NTHU+MOOC_04_001+2015_T2</option>
-						<option>course-v1:NUDT+000601502+_</option>
-						<option>course-v1:NUDT+000601502+sp</option>
-						<option>course-v1:RUCX+AP000010X+2017_T1</option>
-						<option>course-v1:RiceX+AdvBIO_2x+2015_T2</option>
-						<option>course-v1:RiceX+AdvBIO_2x+sp</option>
-						<option>course-v1:RiceX+AdvENVSCI_1x+sp</option>
-						<option>course-v1:RiceX+BIOC372_1x+2016_T2</option>
-						<option>course-v1:RiceX+BIOC372_1x+2017_T1</option>
-						<option>course-v1:RiceX+BIOC372_1x+2017_T2</option>
-						<option>course-v1:RiceX+BIOC372_2x+2016_T2</option>
-						<option>course-v1:RiceX+RELI157x+2016T2</option>
-						<option>course-v1:RiceX+RELI157x+2017_T1</option>
-						<option>course-v1:RiceX+RELI157x+2017_T2</option>
-						<option>course-v1:SDUx+sd010201402+sp</option>
-						<option>course-v1:SEU+00034237_p1+sp</option>
-						<option>course-v1:Stanford+SciWrite+2016_T2</option>
-						<option>course-v1:Stanfordx+SciWrite+2017_T1</option>
-						<option>course-v1:Stanfordx+SciWrite+2017_T2</option>
-						<option>course-v1:TJU+TJU2016001+sp</option>
-						<option>course-v1:TNUA+AO35003+_</option>
-						<option>course-v1:Tsinghua+20150001+2015_T2</option>
-						<option>course-v1:TsinghuaX+00040132X+sp</option>
-						<option>course-v1:TsinghuaX+00612643X_p3+sp</option>
-						<option>course-v1:TsinghuaX+00690302_2+2016_T2</option>
-						<option>course-v1:TsinghuaX+00690342X_p1+sp</option>
-						<option>course-v1:TsinghuaX+00701032X_tv+2015_T1</option>
-						<option>course-v1:TsinghuaX+00720091X_2015_2+2015_T2</option>
-						<option>course-v1:TsinghuaX+00740043X+2016_T1</option>
-						<option>course-v1:TsinghuaX+00740043X+2016_TS</option>
-						<option>course-v1:TsinghuaX+00740043_2x+2017_T1</option>
-						<option>course-v1:TsinghuaX+00740113_1X+sp</option>
-						<option>course-v1:TsinghuaX+00740123X+2016_TS</option>
-						<option>course-v1:TsinghuaX+00740123X+2017_T1</option>
-						<option>course-v1:TsinghuaX+00740123X+2017_T2</option>
-						<option>course-v1:TsinghuaX+01510192X+2016_T2</option>
-						<option>course-v1:TsinghuaX+10421084X_2015_2+sp</option>
-						<option>course-v1:TsinghuaX+10430484X+2016_T1</option>
-						<option>course-v1:TsinghuaX+10610183X_2015_T2+2015_T2</option>
-						<option>course-v1:TsinghuaX+10610183_2X+2017_T2</option>
-						<option>course-v1:TsinghuaX+10610193X+2017_T1</option>
-						<option>course-v1:TsinghuaX+10610193X+2017_T2</option>
-						<option>course-v1:TsinghuaX+10610204_tv+2015_T1</option>
-						<option>course-v1:TsinghuaX+10610224X_p1+sp</option>
-						<option>course-v1:TsinghuaX+10691113X+2017_T1</option>
-						<option>course-v1:TsinghuaX+10691113X+2017_T2</option>
-						<option>course-v1:TsinghuaX+20140064X+2016_T1</option>
-						<option>course-v1:TsinghuaX+20220214X+2017_T1</option>
-						<option>course-v1:TsinghuaX+20220214X+2017_T2</option>
-						<option>course-v1:TsinghuaX+20440333_2015X+sp</option>
-						<option>course-v1:TsinghuaX+20740042X+2016_T1</option>
-						<option>course-v1:TsinghuaX+20740042X+sp</option>
-						<option>course-v1:TsinghuaX+20740084X+2016_T1</option>
-						<option>course-v1:TsinghuaX+30040323X+2016_T1</option>
-						<option>course-v1:TsinghuaX+30130274X+2016_T1</option>
-						<option>course-v1:TsinghuaX+30140393X+2016_T1</option>
-						<option>course-v1:TsinghuaX+30150303X+2015_T2</option>
-						<option>course-v1:TsinghuaX+34000888X_p1+sp</option>
-						<option>course-v1:TsinghuaX+40040152X+sp</option>
-						<option>course-v1:TsinghuaX+40130653X+sp</option>
-						<option>course-v1:TsinghuaX+40670453X+sp</option>
-						<option>course-v1:TsinghuaX+60240202X+2016_T1</option>
-						<option>course-v1:TsinghuaX+61030031X+2016_T2</option>
-						<option>course-v1:TsinghuaX+70150023X_2015_T2+2015_T2</option>
-						<option>course-v1:TsinghuaX+70230063X+sp</option>
-						<option>course-v1:TsinghuaX+70250023X_2015_2+2015_T2</option>
-						<option>course-v1:TsinghuaX+80000822X+2016_TS</option>
-						<option>course-v1:TsinghuaX+80511503X+sp</option>
-						<option>course-v1:TsinghuaX+80512073X+2016_TS</option>
-						<option>course-v1:TsinghuaX+80512073X+2017_T2</option>
-						<option>course-v1:TsinghuaX+80515522X+2016_T1</option>
-						<option>course-v1:TsinghuaX+80515522X+2016_T2</option>
-						<option>course-v1:TsinghuaX+80515522X+2017_T1</option>
-						<option>course-v1:TsinghuaX+80515522X+2017_T2</option>
-						<option>course-v1:TsinghuaX+80590952X+2016_T2</option>
-						<option>course-v1:TsinghuaX+90640012X_p1+sp</option>
-						<option>course-v1:TsinghuaX+AP000002X+2016T2</option>
-						<option>course-v1:TsinghuaX+AP000008X+sp</option>
-						<option>course-v1:TsinghuaX+AP000009X+sp</option>
-						<option>course-v1:TsinghuaX+THU201605X+2016_T1</option>
-						<option>course-v1:TsinghuaX+THU201605X+2016_T2</option>
-						<option>course-v1:TsinghuaX+THU201605X+2017_T1</option>
-						<option>course-v1:TsinghuaX+THU201605X+2017_T2</option>
-						<option>course-v1:TsinghuaX+THU201607+sp</option>
-						<option>course-v1:TsinghuaX+TSINGHUA107+sp</option>
-						<option>course-v1:TsinghuaX+TsinghuaMandarin01+2016_T1</option>
-						<option>course-v1:TsinghuaX+TsinghuaMandarin01+sp</option>
-						<option>course-v1:Tsinghuax+10421065X_2015_T2+2015_T2</option>
-						<option>course-v1:UC_BerkeleyX+ColWri2_2x+sp</option>
-						<option>course-v1:XJTU+ME-XMGL2013-014X+2017_T2</option>
-						<option>course-v1:ZUELX+B0601353+2017_T1</option>
-						<option>course-v1:ZUELX+B0601353+2017_T2</option>
-						<option>course-v1:rcoe+MOOC102+2016_T1</option>
-						<option>course-v1:ustcX+LB05203_a+2016_T2</option>
-						<option>course-v1:xuetangx+credittest1+2017_T1</option>
+<br>
+<br>
+<br>
 
-                    </select>
-                </p>
-                <p>
-                    <input type="submit" name="submit" class="btn btn-primary" value="Submit" id="div7"/>
-                </p>
-            </fieldset>
-        </form>
+<h2 id="div1">
+    Export student IDs based on entered courses:
+</h2>
 
-    </body>
-    <br><br><br>
-    <p id="div66">
-        UPRR Web App Preview (Pre-release)
-    </p>
+<form method="post" action="/searchresult" id="runs">
+    <fieldset>
+        <legend id="div4">Search students for each course</legend>
+        <p id="div3">
+            <label>Please select a course:</label>
+            <!--<input type="number" name="index" value="Integer here" min="0" max="7320653" required>-->
+            <select class="form-control" name="manufacturer" id="div3">
+                <option selected="selected">Choose a course here</option>
+                <option>SEU/Foundations_of_Solid_Mechanics</option>
+                <option>ZJSU/History_of_Foreign_Literature</option>
+                <option>ZZU/Imperial_Examination_And_Tang_Poetry</option>
+                <option>RUC/Concise_Western_History</option>
+                <option>HHU/Soil_Mechanics</option>
+                <option>CUMT/Engineering_Graphics</option>
+                <option>CUMT/Management</option>
+                <option>PKU/Business_English</option>
+                <option>CUMT/Geology</option>
+                <option>CUMT/Advanced_Mathematics</option>
+                <option>WHU/Design_and_Analysis_of_Algorithms</option>
+                <option>CUMT/Structural_Mechanics</option>
+                <option>BHU/Machine_Theory</option>
+                <option>NJU/Numerical_Analysis</option>
+                <option>HIT/Design_and_Analysis_of_Algorithms</option>
+                <option>THU/Linear_Algebra</option>
+                <option>ZJU/Linear_Algebra</option>
+                <option>NUDT/Theoretical_Mechanics</option>
+                <option>ZJU/Artificial_Intelligence</option>
+                <option>XDU/Data_Structure</option>
+                <option>FDU/History_of_Foreign_Literature</option>
+                <option>BJTU/Principle_of_Single_Chip_Microcomputer</option>
+                <option>THU/Physics</option>
+                <option>HHU/Engineering_Graphics</option>
+                <option>WHU/Concise_World_History</option>
+                <option>CUMT/Concise_Chinese_History</option>
+                <option>SEU/Systemic_Pathology</option>
+                <option>HUST/Data_Structure</option>
+                <option>CUMT/Physical_Chemistry</option>
+                <option>SEU/Design_and_Analysis_of_Algorithms</option>
+                <option>CUMT/Machine_Theory</option>
+                <option>HIT/Principle_of_Computer_Composition</option>
+                <option>PKU/Basic_Calculus</option>
+                <option>XJTU/Fundamentals_of_Analog_Electronic_Technology</option>
+                <option>CUMT/Circuit_Analysis</option>
+                <option>CUMT/Soil_Mechanics</option>
+                <option>NJU/Introduction_to_Logic</option>
+                <option>XJTU/Organic_Chemistry</option>
+                <option>NEU/Basic_Principles_of_Robot</option>
+                <option>RUC/Criminal_Law</option>
+                <option>ZJU/Advanced_Mathematics</option>
+                <option>HIT/Digital_Electronic_Technology</option>
+                <option>HUST/Fundamentals_of_Digital_Electronic_Technology</option>
+                <option>THU/Data_Structure</option>
+                <option>CCNU/Environment_and_Health</option>
+                <option>PKU/Introduction_to_Logic</option>
+                <option>JNU/Sociology</option>
+                <option>TJU/Probability_Theory</option>
+                <option>CUMT/Numerical_Analysis</option>
+                <option>CUMT/Environment_and_Health</option>
+                <option>THU/Principle_of_Single_Chip_Microcomputer</option>
+                <option>TJU/Inorganic_Chemistry</option>
+                <option>CUMT/Database_Principle</option>
+                <option>FDU/Constitutional_Law</option>
+                <option>THU/Basic_Principles_of_Robot</option>
+                <option>PKU/Outline_of_Modern_Chinese_History</option>
+                <option>CUMT/Design_and_Analysis_of_Algorithms</option>
+                <option>WHU/Anatomy_and_Clinic</option>
+                <option>FDU/Advanced_Algebra</option>
+                <option>CUMT/Principles_of_Chemical_Engineering</option>
+                <option>TJU/Basic_Principle_of_Steel_Structure</option>
+                <option>NJU/Systemic_Pathology</option>
+                <option>BHU/Engineering_Mathematical_Analysis</option>
+                <option>SEU/Introduction_of_Information_Communication_Network</option>
+                <option>XJTU/Pharmacology</option>
+            </select>
+        </p>
+        <p>
+            <input type="submit" name="submit" class="btn btn-primary" value="Submit" id="div7"/>
+        </p>
+    </fieldset>
+</form>
+
+</body>
+<br><br><br>
+<p id="div66">
+    UPRR Web App Preview
+</p>

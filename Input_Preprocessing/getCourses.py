@@ -22,5 +22,9 @@ for c in courses:
     opt = '<option >' + c + '</option>'
     options.append(opt)
 
+f = open("coursesOption.txt", "w")
 for opt in options:
-    print(opt)
+    f.write(opt + '\n')
+f.close()
+
+print("Successfully update the course options in coursesOption.txt file.")
