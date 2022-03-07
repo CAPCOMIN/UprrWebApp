@@ -8,8 +8,8 @@ import jieba.analyse as analyse
 import imageio
 from os import path
 
-
 import matplotlib.pyplot as plt
+
 
 class WC(object):
 
