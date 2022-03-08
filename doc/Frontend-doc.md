@@ -1,14 +1,23 @@
 # 前端开发文档
 
+> 
+>
+> **Author：LLD**
+>
+> March 5th,2022
+>
+> 
+
 ## 1 前言
 
 对于团队来说，为项目部署一套完整的开发文档可以减少团队协作成本和维护成本，让代码阅读起来更容易。
 
 ## 2 环境及版本说明
 
-[HbuildX](https://www.dcloud.io/)    版本 3.1.22
-
-[Bootstrap](https://getbootstrap.com/    ) 是最流行的 HTML、CSS 和 JS 框架，用于开发响应式布局、移动设备优先的 WEB 项目。
+- 操作系统：Windows 10 家庭中文版 20H2 19042.1526
+- IDE：[HbuildX](https://www.dcloud.io/)    版本 3.1.22
+- 语言：HTML	CSS3 
+- [Bootstrap](https://getbootstrap.com/    ) 是最流行的 HTML、CSS 和 JS 框架，用于开发响应式布局、移动设备优先的 WEB 项目。
 
 ## 3 代码及代码目录结构及代码文件功能说明
 
@@ -23,7 +32,7 @@
 <title>Recommendation Generator</title>
 ```
 
-![image-20220304203624167](./static/imgs/01.png)
+![image-20220304203624167](../static/Frontend-img/01.png)
 
 ### 3.2 文档图标
 
@@ -69,7 +78,7 @@
 </style>   
 ```
 
-![image-20220304203419285](./static/imgs/02.png)
+![image-20220304203419285](../static/Frontend-img/02.png)
 
 ### 3.5 内容标题
 
@@ -107,7 +116,7 @@
 </style>  
 ```
 
-![image-20220304214336771](./static/imgs/03.png)
+![image-20220304214336771](../static/Frontend-img/03.png)
 
 ### 3.7 文档背景
 
@@ -130,7 +139,7 @@
 </style>  
 ```
 
-![image-20220304203709714](./static/imgs/04.png)
+![image-20220304203709714](../static/Frontend-img/04.png)
 
 ### 3.8 不透明度渐变效果
 
@@ -209,11 +218,11 @@
 
 鼠标没有接触盒子时，不透明度为0.75
 
-![image-20220304203444601](./static/imgs/05.png)
+![image-20220304203444601](../static/Frontend-img/05.png)
 
 鼠标接触盒子时，不透明度为0.90
 
-![image-20220304203459136](./static/imgs/06.png)
+![image-20220304203459136](../static/Frontend-img/06.png)
 
 ### 3.9 盒子属性
 
@@ -247,7 +256,7 @@
 </style>  
 ```
 
-![image-20220304203350949](./static/imgs/07.png)
+![image-20220304203350949](../static/Frontend-img/07.png)
 
 ### 3.10 顶部导航栏
 
@@ -296,7 +305,7 @@
 </nav>
 ```
 
-![image-20220304203419285](./static/imgs/08.png)
+![image-20220304203419285](../static/Frontend-img/08.png)
 
 实现导航栏固定在顶部
 
@@ -358,7 +367,7 @@
 </body>
 ```
 
-![image-20220304204002712](./static/imgs/09.png)
+![image-20220304204002712](../static/Frontend-img/09.png)
 
 ### 3.12 提交按钮
 
@@ -375,7 +384,7 @@
 </form>
 ```
 
-![image-20220305000125176](./static/imgs/10.png)
+![image-20220305000125176](../static/Frontend-img/10.png)
 
 ### 3.13 菜单列表
 
@@ -468,7 +477,7 @@
 </form>
 ```
 
-![image-20220305122652647](./static/imgs/11.png)
+![image-20220305122652647](../static/Frontend-img/11.png)
 
 ### 3.14 返回按钮
 
@@ -505,7 +514,7 @@
  </a>
 ```
 
-![image-20220305123636078](./static/imgs/12.png)
+![image-20220305123636078](../static/Frontend-img/12.png)
 
 ### 3.15 字母过长换行
 
@@ -525,5 +534,6 @@
 
 ## 4 总结
 
-以上介绍了本项目前端的开发架构，经过无数次的调整和改进呈现了最终版本[UPRR Web App](http://124.222.161.150:5000/)，加上后端和算法的实现，完善并实现了所需的功能。
+- 这是我第一个完整的前端项目，采用HTML、CSS3和少量的JavaScript进行搭建。
+- 以上介绍了本项目前端的开发架构，经过无数次的样式调整和改进呈现了最终版本[UPRR Web App](http://124.222.161.150:5000/)，加上后端和算法的实现，完善并实现了所需的功能。
 
