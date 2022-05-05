@@ -106,3 +106,4 @@ DATA_PATH = "E:\\RecommAlgorithm\\UprrWebApp\\data\\features_sample.csv"
 ## 主要作者
 
 本项目由[@youdi1012](https://github.com/youdi1012) 担任前端工程负责人，[@CAPCOMIN](https://github.com/CAPCOMIN) 担任后端工程负责人兼Web应用负责人，[@konn-submarine-bu](https://github.com/konn-submarine-bu)担任数据处理负责人兼项目负责人。
+
